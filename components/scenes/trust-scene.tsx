@@ -53,7 +53,7 @@ export function TrustScene() {
         </div>
 
         {/* GitHub card */}
-        <div className="trust-reveal neo-flat p-8 md:p-10 rounded-[2rem] md:rounded-[3rem] max-w-lg mx-auto mb-12">
+        <div className="trust-reveal neo-flat p-8 md:p-10 rounded-4xl md:rounded-5xl max-w-lg mx-auto mb-12">
           <div className="flex items-center justify-center gap-4 mb-6">
             <Github className="w-8 h-8 text-[#2d3436]" />
             <span className="text-lg font-light tracking-[0.2em] text-[#2d3436]">valygate/core</span>
@@ -68,7 +68,7 @@ export function TrustScene() {
               <div className="text-[8px] uppercase tracking-widest text-[#7d8da1] mt-1">Rust</div>
             </div>
             <div className="neo-pressed p-3 rounded-xl text-center">
-              <div className="text-lg font-light text-[#44474a]">MIT</div>
+              <div className="text-lg font-light text-[#44474a]">AGPL</div>
               <div className="text-[8px] uppercase tracking-widest text-[#7d8da1] mt-1">License</div>
             </div>
           </div>

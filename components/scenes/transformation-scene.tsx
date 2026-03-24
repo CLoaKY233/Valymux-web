@@ -152,7 +152,7 @@ export function TransformationScene() {
                   key={step.title}
                   className={`transform-step-${i} neo-flat p-5 md:p-6 rounded-xl md:rounded-2xl flex items-start gap-4 opacity-0`}
                 >
-                  <div className="neo-pressed w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="neo-pressed w-10 h-10 rounded-xl flex items-center justify-center shrink-0 mt-0.5">
                     <Icon className={`w-5 h-5 ${step.color}`} />
                   </div>
                   <div className="flex-1 min-w-0">
@@ -172,7 +172,7 @@ export function TransformationScene() {
 
           {/* Right: Product frame */}
           <div className="transform-frame opacity-0">
-            <div className="neo-flat p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem]">
+            <div className="neo-flat p-6 md:p-8 rounded-3xl md:rounded-4xl">
               {/* Terminal header */}
               <div className="flex items-center gap-2 mb-5">
                 <div className="w-2.5 h-2.5 rounded-full bg-[#f1f2f6]" />
@@ -197,7 +197,7 @@ export function TransformationScene() {
                     className={`transform-detail-${i} flex items-start gap-2 opacity-0 overflow-hidden`}
                     style={{ height: 0 }}
                   >
-                    <span className="text-[#ff570a]/30 flex-shrink-0 leading-relaxed">│</span>
+                    <span className="text-[#ff570a]/30 shrink-0 leading-relaxed">│</span>
                     <span className="text-[#44474a] leading-relaxed break-all">{step.detail}</span>
                   </div>
                 ))}

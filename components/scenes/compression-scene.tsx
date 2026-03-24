@@ -88,17 +88,17 @@ export function CompressionScene() {
             {beforeApis.map((api, i) => (
               <div key={api.provider} className="compress-before neo-flat p-4 rounded-xl flex items-center justify-between gap-4 opacity-0">
                 <div className="flex items-center gap-3 min-w-0">
-                  <div className="w-2 h-2 rounded-full bg-[#ff570a]/20 flex-shrink-0" />
-                  <span className="text-xs font-medium text-[#44474a] flex-shrink-0">{api.provider}</span>
+                  <div className="w-2 h-2 rounded-full bg-[#ff570a]/30 shrink-0" />
+                  <span className="text-xs font-medium text-[#2d3436] shrink-0">{api.provider}</span>
                 </div>
                 <div className="flex items-center gap-3 text-right min-w-0">
                   <code className="font-mono text-[10px] text-[#7d8da1] truncate">{api.endpoint}</code>
-                  <span className="neo-pressed px-2 py-1 rounded text-[8px] text-[#a3b1c6] font-mono flex-shrink-0">{api.format}</span>
+                  <span className="neo-pressed px-2 py-1 rounded text-[8px] text-[#7d8da1] font-mono shrink-0">{api.format}</span>
                 </div>
               </div>
             ))}
             <div className="text-center pt-2">
-              <span className="text-[9px] tracking-[0.2em] uppercase text-[#a3b1c6]">4 different APIs</span>
+              <span className="text-[9px] tracking-[0.2em] uppercase text-[#7d8da1]">4 different APIs</span>
             </div>
           </div>
 
@@ -128,25 +128,25 @@ export function CompressionScene() {
 
               <div className="neo-pressed p-4 rounded-xl font-mono text-[11px] text-[#7d8da1] space-y-2">
                 <div><span className="text-emerald-400/60">POST</span> /v1/chat/completions</div>
-                <div className="h-px bg-[#a3b1c6]/15" />
+                <div className="h-px bg-[#7d8da1]/15" />
                 <div>
-                  <span className="text-[#44474a]">model:</span> &quot;primary-model&quot;
+                  <span className="text-[#2d3436]">model:</span> &quot;primary-model&quot;
                 </div>
                 <div>
-                  <span className="text-[#44474a]">messages:</span> {"[{ role, content }]"}
+                  <span className="text-[#2d3436]">messages:</span> {"[{ role, content }]"}
                 </div>
-                <div className="h-px bg-[#a3b1c6]/15" />
+                <div className="h-px bg-[#7d8da1]/15" />
                 <div><span className="text-emerald-400/60">→</span> Routes to best available provider</div>
               </div>
 
               <div className="mt-5 grid grid-cols-2 gap-3">
                 <div className="neo-pressed p-3 rounded-lg text-center">
-                  <div className="text-sm font-light text-[#44474a]">1</div>
-                  <div className="text-[7px] uppercase tracking-widest text-[#a3b1c6] mt-1">API Format</div>
+                  <div className="text-sm font-light text-[#2d3436]">1</div>
+                  <div className="text-[7px] uppercase tracking-widest text-[#7d8da1] mt-1">API Format</div>
                 </div>
                 <div className="neo-pressed p-3 rounded-lg text-center">
-                  <div className="text-sm font-light text-[#44474a]">All</div>
-                  <div className="text-[7px] uppercase tracking-widest text-[#a3b1c6] mt-1">Providers</div>
+                  <div className="text-sm font-light text-[#2d3436]">All</div>
+                  <div className="text-[7px] uppercase tracking-widest text-[#7d8da1] mt-1">Providers</div>
                 </div>
               </div>
             </div>

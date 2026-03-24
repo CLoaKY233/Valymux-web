@@ -77,6 +77,13 @@
   .neo-flat {
     background: var(--bg-base);
     box-shadow: 9px 9px 16px var(--shadow-dark), -9px -9px 16px var(--shadow-light);
+    transition: all 0.2s ease;
+  }
+
+  .neo-flat:hover {
+    box-shadow: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light);
+    transform: translateY(-1px);
+    cursor: pointer;
   }
 
   .neo-pressed {
@@ -86,13 +93,28 @@
 
   .neo-convex {
     background: linear-gradient(145deg, #f0f5fd, #cacfd4);
-    box-shadow: 9px 9px 16px var(--shadow-dark), -9px -9px 16px var(--shadow-light);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 7px 7px 14px var(--shadow-dark), -7px -7px 14px var(--shadow-light);
+    transition: all 0.2s ease;
+  }
+
+  .neo-convex:hover {
+    box-shadow: 4px 4px 8px var(--shadow-dark), -4px -4px 8px var(--shadow-light);
+    transform: translateY(-1px);
+    cursor: pointer;
   }
 
   .neo-button {
     background: var(--bg-base);
     box-shadow: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light);
     transition: all 0.2s ease;
+  }
+
+  .neo-button:hover {
+    box-shadow: 4px 4px 8px var(--shadow-dark), -4px -4px 8px var(--shadow-light);
+    transform: translateY(-1px);
+    cursor: pointer;
   }
 
   .neo-button:active {
@@ -146,51 +168,38 @@
   }
 }
 
-/* Particle drift animation */
 @keyframes float-drift {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0) translateX(0);
   }
-
   25% {
     transform: translateY(-12px) translateX(6px);
   }
-
   50% {
     transform: translateY(-6px) translateX(-8px);
   }
-
   75% {
     transform: translateY(-18px) translateX(4px);
   }
 }
 
 @keyframes float-drift-slow {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0) translateX(0) rotate(0deg);
   }
-
   33% {
     transform: translateY(-8px) translateX(10px) rotate(1deg);
   }
-
   66% {
     transform: translateY(-16px) translateX(-6px) rotate(-1deg);
   }
 }
 
 @keyframes pulse-glow {
-
-  0%,
-  100% {
+  0%, 100% {
     opacity: 0.3;
     box-shadow: 0 0 8px var(--accent-orange-soft);
   }
-
   50% {
     opacity: 0.7;
     box-shadow: 0 0 24px var(--accent-orange-soft);
@@ -198,13 +207,10 @@
 }
 
 @keyframes pulse-glow-blue {
-
-  0%,
-  100% {
+  0%, 100% {
     opacity: 0.3;
     box-shadow: 0 0 8px var(--accent-blue-soft);
   }
-
   50% {
     opacity: 0.7;
     box-shadow: 0 0 24px var(--accent-blue-soft);
@@ -212,13 +218,10 @@
 }
 
 @keyframes gateway-ring-pulse {
-
-  0%,
-  100% {
+  0%, 100% {
     box-shadow: 0 0 20px var(--accent-orange-soft), inset 0 0 20px var(--accent-orange-soft);
     transform: scale(1);
   }
-
   50% {
     box-shadow: 0 0 40px var(--accent-orange-soft), inset 0 0 30px var(--accent-orange-soft);
     transform: scale(1.02);
@@ -229,7 +232,6 @@
   0% {
     background-position: -200% center;
   }
-
   100% {
     background-position: 200% center;
   }
