@@ -83,7 +83,6 @@
   .neo-flat:hover {
     box-shadow: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light);
     transform: translateY(-1px);
-    cursor: pointer;
   }
 
   .neo-pressed {
@@ -102,7 +101,6 @@
   .neo-convex:hover {
     box-shadow: 4px 4px 8px var(--shadow-dark), -4px -4px 8px var(--shadow-light);
     transform: translateY(-1px);
-    cursor: pointer;
   }
 
   .neo-button {

@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef } from "react"
-import { Zap, Wrench, KeyRound, Lock, BarChart3, Shield, AlertTriangle, DollarSign, LucideIcon } from "lucide-react"
+import { Zap, Wrench, KeyRound, Lock, BarChart3, Shield, AlertTriangle, DollarSign } from "lucide-react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
@@ -127,7 +127,7 @@ export function ChaosScene() {
                 className={`chaos-card chaos-card-${i} neo-flat p-4 md:p-5 rounded-xl md:rounded-2xl flex items-center gap-3 md:gap-4 opacity-0`}
               >
                 <div className="neo-pressed w-9 h-9 md:w-10 md:h-10 rounded-lg md:rounded-xl flex items-center justify-center shrink-0">
-                  <Icon className={`w-4 h-4 md:w-5 h-5 ${point.color}`} />
+                  <Icon className={`w-4 h-4 md:w-5 md:h-5 ${point.color}`} />
                 </div>
                 <span className="text-xs md:text-sm font-light text-[#44474a]">{point.label}</span>
               </div>

@@ -119,7 +119,7 @@ export function HeroScene() {
 
           {/* Right: Gateway diagram */}
           <div ref={diagramRef} className="lg:col-span-5 opacity-0">
-            <div className="neo-flat p-8 md:p-10 rounded-5xl relative">
+            <div className="neo-flat p-8 md:p-10 rounded-[2.5rem] relative">
               <div className="flex justify-center gap-3 md:gap-4 mb-6">
                 {["API Call", "SDK", "cURL"].map((label) => (
                   <div key={label} className="neo-convex px-3 md:px-4 py-2 md:py-2.5 rounded-xl text-center min-w-[70px] md:min-w-[80px]">

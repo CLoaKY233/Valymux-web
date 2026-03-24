@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import { PageLayout } from "@/components/page-layout"
-import { Rocket, Github, Send, CheckCircle, Zap, Shield, Eye, Code, Users } from "lucide-react"
+import { Github, Send, CheckCircle, Zap, Shield, Eye, Code, Users } from "lucide-react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
@@ -105,9 +105,11 @@ export default function WaitlistPage() {
 
                     <div className="space-y-4">
                       <div>
-                        <label className="text-[10px] tracking-widest uppercase text-[#7d8da1] font-medium mb-2 block">Name</label>
+                        <label htmlFor="name" className="text-[10px] tracking-widest uppercase text-[#7d8da1] font-medium mb-2 block">Name</label>
                         <div className="neo-pressed rounded-xl">
                           <input
+                            id="name"
+                            name="name"
                             type="text"
                             placeholder="Your name"
                             className="w-full bg-transparent px-5 py-3.5 text-sm text-[#44474a] placeholder-[#a3b1c6] outline-none font-light"
@@ -116,9 +118,11 @@ export default function WaitlistPage() {
                       </div>
 
                       <div>
-                        <label className="text-[10px] tracking-widest uppercase text-[#7d8da1] font-medium mb-2 block">Email</label>
+                        <label htmlFor="email" className="text-[10px] tracking-widest uppercase text-[#7d8da1] font-medium mb-2 block">Email</label>
                         <div className="neo-pressed rounded-xl">
                           <input
+                            id="email"
+                            name="email"
                             type="email"
                             placeholder="your@email.com"
                             required
@@ -128,9 +132,11 @@ export default function WaitlistPage() {
                       </div>
 
                       <div>
-                        <label className="text-[10px] tracking-widest uppercase text-[#7d8da1] font-medium mb-2 block">Role</label>
+                        <label htmlFor="role" className="text-[10px] tracking-widest uppercase text-[#7d8da1] font-medium mb-2 block">Role</label>
                         <div className="neo-pressed rounded-xl">
                           <input
+                            id="role"
+                            name="role"
                             type="text"
                             placeholder="AI Engineer, Backend Dev, etc."
                             className="w-full bg-transparent px-5 py-3.5 text-sm text-[#44474a] placeholder-[#a3b1c6] outline-none font-light"
@@ -139,11 +145,13 @@ export default function WaitlistPage() {
                       </div>
 
                       <div>
-                        <label className="text-[10px] tracking-widest uppercase text-[#7d8da1] font-medium mb-2 block">
+                        <label htmlFor="message" className="text-[10px] tracking-widest uppercase text-[#7d8da1] font-medium mb-2 block">
                           What slows you down today? <span className="text-[#a3b1c6]">(optional)</span>
                         </label>
                         <div className="neo-pressed rounded-xl">
                           <textarea
+                            id="message"
+                            name="message"
                             placeholder="Tell us about your biggest pain point..."
                             rows={3}
                             className="w-full bg-transparent px-5 py-3.5 text-sm text-[#44474a] placeholder-[#a3b1c6] outline-none font-light resize-none"

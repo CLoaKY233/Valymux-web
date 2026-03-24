@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import { Copy, Check, Rocket, Github } from "lucide-react"
+import Link from "next/link"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
@@ -78,10 +79,10 @@ export function CTAScene() {
               placeholder="your@email.com"
               className="flex-1 bg-transparent px-5 py-3 text-sm text-[#44474a] placeholder-[#a3b1c6] outline-none font-light"
             />
-            <button className="neo-convex px-6 py-3 rounded-full flex items-center gap-2 shrink-0">
+            <Link href="/waitlist" className="neo-convex px-6 py-3 rounded-full flex items-center gap-2 shrink-0">
               <Rocket className="w-4 h-4 text-[#ff570a]/50" />
               <span className="font-medium text-sm text-[#44474a]">Join Waitlist</span>
-            </button>
+            </Link>
           </div>
         </div>
 

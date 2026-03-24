@@ -149,7 +149,7 @@ export default function RoadmapPage() {
 
             <div className="relative">
               {/* Vertical timeline line */}
-              <div className="timeline-line absolute left-6 md:left-8 top-0 bottom-0 w-px bg-[#a3b1c6]/20" style={{ transform: "scaleY(0)" }} />
+              <div className="timeline-line absolute left-6 md:left-8 top-0 bottom-0 w-px bg-[#a3b1c6]/20" />
 
               <div className="space-y-10">
                 {phases.map((phase, i) => (

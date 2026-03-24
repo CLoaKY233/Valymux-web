@@ -9,6 +9,7 @@ import {
   MessageCircle,
   GitPullRequest,
   Rocket,
+  GitMerge,
 } from "lucide-react";
 import Link from "next/link";
 import gsap from "gsap";
@@ -21,7 +22,7 @@ const meanings = [
   { icon: Users, text: "Transparent product direction" },
   { icon: MessageCircle, text: "Community feedback before and after launch" },
   { icon: GitPullRequest, text: "Issue-driven development" },
-  { icon: Users, text: "A path for contributions and collaboration" },
+  { icon: GitMerge, text: "A path for contributions and collaboration" },
 ];
 
 export default function OpenSourcePage() {

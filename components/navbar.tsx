@@ -86,6 +86,8 @@ export function Navbar() {
             className="lg:hidden neo-button p-2.5 rounded-full"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-menu"
           >
             {mobileOpen ? <X className="w-4 h-4 text-[#44474a]" /> : <Menu className="w-4 h-4 text-[#44474a]" />}
           </button>
@@ -94,7 +96,7 @@ export function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="fixed inset-0 z-40 pt-24 bg-[#e0e5ec]/98 backdrop-blur-lg lg:hidden">
+        <div id="mobile-menu" className="fixed inset-0 z-40 pt-24 bg-[#e0e5ec]/98 backdrop-blur-lg lg:hidden">
           <div className="flex flex-col items-center gap-6 py-10">
             {navLinks.map((link) => (
               <Link

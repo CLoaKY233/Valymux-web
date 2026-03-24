@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react"
 import { PageLayout } from "@/components/page-layout"
-import { ShieldCheck, Lock, Eye, KeyRound, Server, Shield, Rocket } from "lucide-react"
+import { ShieldCheck, Lock, Eye, KeyRound, Server, Shield, Rocket, ScrollText } from "lucide-react"
 import Link from "next/link"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -16,7 +16,7 @@ const currentPosture = [
   { icon: Eye, text: "Sensitive config values redacted in debug output" },
   { icon: Shield, text: "Request validation before forwarding to providers" },
   { icon: ShieldCheck, text: "Model capability checks before upstream requests" },
-  { icon: Eye, text: "Request logs focus on metadata, not secrets" },
+  { icon: ScrollText, text: "Request logs focus on metadata, not secrets" },
 ]
 
 const trustSignals = [
