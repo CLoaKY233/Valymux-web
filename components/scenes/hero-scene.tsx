@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react"
 import { Rocket, Star } from "lucide-react"
+import Link from "next/link"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
@@ -85,14 +86,19 @@ export function HeroScene() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 md:gap-6 pt-2">
-              <button className="hero-cta neo-convex px-8 py-4 rounded-[2rem] flex items-center justify-center gap-3 group opacity-0">
+              <Link href="/waitlist" className="hero-cta neo-convex px-8 py-4 rounded-4xl flex items-center justify-center gap-3 group opacity-0">
                 <Rocket className="w-4 h-4 text-[#ff570a]/50" />
                 <span className="font-medium text-sm text-[#44474a]">Join Waitlist</span>
-              </button>
-              <button className="hero-cta neo-button px-8 py-4 rounded-[2rem] flex items-center justify-center gap-3 opacity-0">
+              </Link>
+              <a
+                href="https://github.com/cloaky233/Valygate"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hero-cta neo-button px-8 py-4 rounded-4xl flex items-center justify-center gap-3 opacity-0"
+              >
                 <Star className="w-4 h-4 text-[#7d8da1]" />
                 <span className="font-medium text-sm text-[#7d8da1]">GitHub Project</span>
-              </button>
+              </a>
             </div>
 
             <div className="grid grid-cols-3 gap-4 md:gap-8 pt-4 max-w-md">
@@ -114,21 +120,18 @@ export function HeroScene() {
           {/* Right: Gateway diagram */}
           <div ref={diagramRef} className="lg:col-span-5 opacity-0">
             <div className="neo-flat p-8 md:p-10 rounded-[2.5rem] relative">
-              {/* Top: client apps */}
-              <div className="flex justify-center gap-4 mb-6">
+              <div className="flex justify-center gap-3 md:gap-4 mb-6">
                 {["API Call", "SDK", "cURL"].map((label) => (
-                  <div key={label} className="neo-convex px-4 py-2.5 rounded-xl text-center">
+                  <div key={label} className="neo-convex px-3 md:px-4 py-2 md:py-2.5 rounded-xl text-center min-w-[70px] md:min-w-[80px]">
                     <span className="text-[9px] font-medium tracking-widest text-[#7d8da1] uppercase">{label}</span>
                   </div>
                 ))}
               </div>
 
-              {/* Connection line */}
               <div className="flex justify-center mb-4">
                 <div className="neo-pressed w-0.5 h-8 rounded-full" />
               </div>
 
-              {/* Gateway core */}
               <div className="flex justify-center mb-4">
                 <div className="w-24 h-24 rounded-full border-2 border-[#ff570a]/15 gateway-pulse flex items-center justify-center">
                   <div className="neo-convex w-16 h-16 rounded-full flex items-center justify-center">
@@ -137,13 +140,11 @@ export function HeroScene() {
                 </div>
               </div>
 
-              {/* Connection line */}
               <div className="flex justify-center mb-4">
                 <div className="neo-pressed w-0.5 h-8 rounded-full" />
               </div>
 
-              {/* Bottom: providers */}
-              <div className="flex justify-center gap-2 flex-wrap">
+              <div className="flex justify-center gap-2 flex-wrap max-w-[280px] mx-auto">
                 {["OpenAI", "Anthropic", "Gemini", "Mistral"].map((name) => (
                   <div key={name} className="neo-pressed px-3 py-2 rounded-full">
                     <span className="text-[8px] font-medium tracking-widest text-[#7d8da1] uppercase">{name}</span>
@@ -152,7 +153,7 @@ export function HeroScene() {
               </div>
 
               <div className="text-center mt-6">
-                <span className="text-[9px] tracking-[0.3em] uppercase text-[#a3b1c6] font-medium">
+                <span className="text-[9px] tracking-[0.3em] uppercase text-[#7d8da1] font-medium">
                   One Gateway · Any Provider
                 </span>
               </div>

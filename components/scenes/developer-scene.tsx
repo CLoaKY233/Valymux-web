@@ -52,7 +52,7 @@ export function DeveloperScene() {
         {/* Before / After comparison */}
         <div className="dev-reveal grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10 mb-16">
           {/* Before */}
-          <div className="neo-flat p-6 md:p-8 rounded-[2rem] md:rounded-[3rem]">
+          <div className="neo-flat p-6 md:p-8 rounded-4xl md:rounded-[3rem]">
             <div className="flex items-center gap-3 mb-6">
               <div className="neo-pressed px-3 py-1.5 rounded-full">
                 <span className="text-[9px] font-medium tracking-widest text-[#ff570a]/60 uppercase">Before</span>
@@ -80,7 +80,7 @@ if (provider === "openai") {
           </div>
 
           {/* After */}
-          <div className="neo-flat p-6 md:p-8 rounded-[2rem] md:rounded-[3rem] border-2 border-[#ff570a]/10">
+          <div className="neo-flat p-6 md:p-8 rounded-4xl md:rounded-[3rem] border-2 border-[#ff570a]/10">
             <div className="flex items-center gap-3 mb-6">
               <div className="neo-convex px-3 py-1.5 rounded-full">
                 <span className="text-[9px] font-medium tracking-widest text-[#44474a] uppercase">After</span>
@@ -109,7 +109,7 @@ const res = await fetch("http://valygate/v1/chat", {
 
         {/* Config snippet */}
         <div className="dev-reveal max-w-2xl mx-auto">
-          <div className="neo-flat p-6 md:p-8 rounded-[2rem] md:rounded-[3rem]">
+          <div className="neo-flat p-6 md:p-8 rounded-4xl md:rounded-[3rem]">
             <div className="flex items-center gap-4 mb-6">
               <div className="neo-pressed w-10 h-10 rounded-xl flex items-center justify-center">
                 <SlidersHorizontal className="w-5 h-5 text-[#44474a]" />

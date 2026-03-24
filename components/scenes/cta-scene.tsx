@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import { Copy, Check, Rocket, Github } from "lucide-react"
+import Link from "next/link"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
@@ -78,19 +79,24 @@ export function CTAScene() {
               placeholder="your@email.com"
               className="flex-1 bg-transparent px-5 py-3 text-sm text-[#44474a] placeholder-[#a3b1c6] outline-none font-light"
             />
-            <button className="neo-convex px-6 py-3 rounded-full flex items-center gap-2 flex-shrink-0">
+            <Link href="/waitlist" className="neo-convex px-6 py-3 rounded-full flex items-center gap-2 shrink-0">
               <Rocket className="w-4 h-4 text-[#ff570a]/50" />
               <span className="font-medium text-sm text-[#44474a]">Join Waitlist</span>
-            </button>
+            </Link>
           </div>
         </div>
 
         {/* GitHub CTA */}
         <div className="cta-reveal mt-8">
-          <button className="neo-button px-8 py-4 rounded-full inline-flex items-center gap-3">
+          <a
+            href="https://github.com/cloaky233/Valygate"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="neo-button px-8 py-4 rounded-full inline-flex items-center gap-3"
+          >
             <Github className="w-5 h-5 text-[#7d8da1]" />
             <span className="font-medium text-[#7d8da1]">Star on GitHub</span>
-          </button>
+          </a>
         </div>
 
         {/* Docker command */}
@@ -101,7 +107,7 @@ export function CTAScene() {
             </code>
             <button
               onClick={handleCopy}
-              className="neo-button p-4 md:p-5 rounded-full ml-4 flex-shrink-0"
+              className="neo-button p-4 md:p-5 rounded-full ml-4 shrink-0"
               aria-label="Copy command"
             >
               {copied

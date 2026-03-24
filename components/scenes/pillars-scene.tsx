@@ -79,7 +79,7 @@ export function PillarsScene() {
         {/* Three pillar cards */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
           {/* SAFETY */}
-          <div className="pillar-card neo-flat p-7 md:p-8 rounded-[2rem] flex flex-col opacity-0">
+          <div className="pillar-card neo-flat p-7 md:p-8 rounded-4xl flex flex-col opacity-0">
             <div className="flex items-center gap-3 mb-5">
               <div className="neo-pressed w-11 h-11 rounded-xl flex items-center justify-center">
                 <ShieldCheck className="w-5 h-5 text-[#ff570a]/40" />
@@ -112,7 +112,7 @@ export function PillarsScene() {
           </div>
 
           {/* SPEED */}
-          <div className="pillar-card neo-convex p-7 md:p-8 rounded-[2rem] flex flex-col opacity-0">
+          <div className="pillar-card neo-convex p-7 md:p-8 rounded-4xl flex flex-col opacity-0">
             <div className="flex items-center gap-3 mb-5">
               <div className="neo-pressed w-11 h-11 rounded-xl flex items-center justify-center">
                 <Zap className="w-5 h-5 text-blue-400/50" />
@@ -157,7 +157,7 @@ export function PillarsScene() {
           </div>
 
           {/* OBSERVABILITY */}
-          <div className="pillar-card neo-flat p-7 md:p-8 rounded-[2rem] flex flex-col opacity-0">
+          <div className="pillar-card neo-flat p-7 md:p-8 rounded-4xl flex flex-col opacity-0">
             <div className="flex items-center gap-3 mb-5">
               <div className="neo-pressed w-11 h-11 rounded-xl flex items-center justify-center">
                 <Activity className="w-5 h-5 text-purple-400/50" />
