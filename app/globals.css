@@ -1,0 +1,271 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --bg-base: #e0e5ec;
+  --shadow-light: #ffffff;
+  --shadow-dark: #a3b1c6;
+  --accent-orange-soft: rgba(255, 87, 11, 0.15);
+  --accent-blue-soft: rgba(20, 209, 255, 0.15);
+
+  --background: #e0e5ec;
+  --foreground: #44474a;
+  --card: #e0e5ec;
+  --card-foreground: #44474a;
+  --popover: #e0e5ec;
+  --popover-foreground: #44474a;
+  --primary: #2d3436;
+  --primary-foreground: #e0e5ec;
+  --secondary: #7d8da1;
+  --secondary-foreground: #2d3436;
+  --muted: #7d8da1;
+  --muted-foreground: #7d8da1;
+  --accent: #ff570a;
+  --accent-foreground: #ffffff;
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: rgba(255, 255, 255, 0.2);
+  --input: #e0e5ec;
+  --ring: #7d8da1;
+  --radius: 0.625rem;
+}
+
+@theme inline {
+  --font-sans: 'Outfit', 'Outfit Fallback', sans-serif;
+  --font-mono: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    background-color: var(--bg-base);
+    color: var(--foreground);
+    font-family: 'Outfit', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer components {
+  .neo-flat {
+    background: var(--bg-base);
+    box-shadow: 9px 9px 16px var(--shadow-dark), -9px -9px 16px var(--shadow-light);
+  }
+
+  .neo-pressed {
+    background: var(--bg-base);
+    box-shadow: inset 6px 6px 12px var(--shadow-dark), inset -6px -6px 12px var(--shadow-light);
+  }
+
+  .neo-convex {
+    background: linear-gradient(145deg, #f0f5fd, #cacfd4);
+    box-shadow: 9px 9px 16px var(--shadow-dark), -9px -9px 16px var(--shadow-light);
+  }
+
+  .neo-button {
+    background: var(--bg-base);
+    box-shadow: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light);
+    transition: all 0.2s ease;
+  }
+
+  .neo-button:active {
+    box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
+    transform: scale(0.98);
+  }
+
+  .glow-orange {
+    box-shadow: 0 0 15px var(--accent-orange-soft);
+  }
+
+  .glow-blue {
+    box-shadow: 0 0 15px var(--accent-blue-soft);
+  }
+
+  .glass-panel {
+    background: rgba(224, 229, 236, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+  }
+
+  .grid-bg {
+    background-image: radial-gradient(circle, rgba(125, 141, 161, 0.12) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .scene-section {
+    position: relative;
+    overflow: hidden;
+  }
+}
+
+@layer utilities {
+  .reveal-up {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  .reveal-fade {
+    opacity: 0;
+  }
+
+  .reveal-scale {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Particle drift animation */
+@keyframes float-drift {
+
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+
+  25% {
+    transform: translateY(-12px) translateX(6px);
+  }
+
+  50% {
+    transform: translateY(-6px) translateX(-8px);
+  }
+
+  75% {
+    transform: translateY(-18px) translateX(4px);
+  }
+}
+
+@keyframes float-drift-slow {
+
+  0%,
+  100% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+  }
+
+  33% {
+    transform: translateY(-8px) translateX(10px) rotate(1deg);
+  }
+
+  66% {
+    transform: translateY(-16px) translateX(-6px) rotate(-1deg);
+  }
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    opacity: 0.3;
+    box-shadow: 0 0 8px var(--accent-orange-soft);
+  }
+
+  50% {
+    opacity: 0.7;
+    box-shadow: 0 0 24px var(--accent-orange-soft);
+  }
+}
+
+@keyframes pulse-glow-blue {
+
+  0%,
+  100% {
+    opacity: 0.3;
+    box-shadow: 0 0 8px var(--accent-blue-soft);
+  }
+
+  50% {
+    opacity: 0.7;
+    box-shadow: 0 0 24px var(--accent-blue-soft);
+  }
+}
+
+@keyframes gateway-ring-pulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px var(--accent-orange-soft), inset 0 0 20px var(--accent-orange-soft);
+    transform: scale(1);
+  }
+
+  50% {
+    box-shadow: 0 0 40px var(--accent-orange-soft), inset 0 0 30px var(--accent-orange-soft);
+    transform: scale(1.02);
+  }
+}
+
+@keyframes text-shimmer {
+  0% {
+    background-position: -200% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes dash-flow {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+.float-particle {
+  animation: float-drift 6s ease-in-out infinite;
+}
+
+.float-particle-slow {
+  animation: float-drift-slow 8s ease-in-out infinite;
+}
+
+.pulse-orange {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.pulse-blue {
+  animation: pulse-glow-blue 3s ease-in-out infinite;
+}
+
+.gateway-pulse {
+  animation: gateway-ring-pulse 4s ease-in-out infinite;
+}
+
+.text-shimmer {
+  background: linear-gradient(90deg, #2d3436 0%, #ff570a 50%, #2d3436 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: text-shimmer 4s linear infinite;
+}
