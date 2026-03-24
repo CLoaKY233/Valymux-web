@@ -19,8 +19,12 @@ const navLinks = [
 
 export function Navbar() {
   const navRef = useRef<HTMLElement>(null)
+  const drawerRef = useRef<HTMLDivElement>(null)
+  const previousFocusRef = useRef<HTMLElement | null>(null)
   const pathname = usePathname()
   const [mobileOpen, setMobileOpen] = useState(false)
+
+  const closeMobileMenu = () => setMobileOpen(false)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -42,6 +46,53 @@ export function Navbar() {
 
     return () => ctx.revert()
   }, [])
+
+  useEffect(() => {
+    if (mobileOpen) {
+      previousFocusRef.current = document.activeElement as HTMLElement
+      document.body.style.overflow = "hidden"
+
+      const focusableSelector = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      const drawer = drawerRef.current
+      const focusableElements = drawer?.querySelectorAll<HTMLElement>(focusableSelector) || []
+      const firstFocusable = focusableElements[0]
+      const lastFocusable = focusableElements[focusableElements.length - 1]
+
+      if (firstFocusable) {
+        setTimeout(() => firstFocusable.focus(), 0)
+      }
+
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === "Tab") {
+          if (!drawer?.contains(document.activeElement)) {
+            e.preventDefault()
+            firstFocusable?.focus()
+            return
+          }
+          if (e.shiftKey && document.activeElement === firstFocusable) {
+            e.preventDefault()
+            lastFocusable?.focus()
+          } else if (!e.shiftKey && document.activeElement === lastFocusable) {
+            e.preventDefault()
+            firstFocusable?.focus()
+          }
+        }
+        if (e.key === "Escape") {
+          closeMobileMenu()
+        }
+      }
+
+      document.addEventListener("keydown", handleKeyDown)
+
+      return () => {
+        document.removeEventListener("keydown", handleKeyDown)
+        document.body.style.overflow = ""
+        if (previousFocusRef.current) {
+          previousFocusRef.current.focus()
+        }
+      }
+    }
+  }, [mobileOpen])
 
   useEffect(() => {
     setMobileOpen(false)
@@ -96,12 +147,13 @@ export function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div id="mobile-menu" className="fixed inset-0 z-40 pt-24 bg-[#e0e5ec]/98 backdrop-blur-lg lg:hidden">
+        <div ref={drawerRef} id="mobile-menu" className="fixed inset-0 z-40 pt-24 bg-[#e0e5ec]/98 backdrop-blur-lg lg:hidden">
           <div className="flex flex-col items-center gap-6 py-10">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={closeMobileMenu}
                 className={`text-lg font-light transition-colors ${
                   pathname === link.href
                     ? "text-[#2d3436] font-normal"
@@ -116,6 +168,7 @@ export function Navbar() {
               href="https://github.com/cloaky233/Valygate"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={closeMobileMenu}
               className="text-lg font-light text-[#7d8da1] hover:text-[#2d3436] transition-colors"
             >
               GitHub
