@@ -207,7 +207,7 @@ export default function RoadmapPage() {
               We are building in public, listening closely, and staying focused on a product people actually want.
               Feedback will shape the roadmap as much as engineering will.
             </p>
-            <h2 className="sr-only">Valymux AI infrastructure roadmap and user feedback</h2>
+            <h2 className="sr-only">Get involved</h2>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/waitlist" className="neo-convex px-8 py-4 rounded-4xl inline-flex items-center gap-3">
                 <Rocket className="w-4 h-4 text-[#ff570a]/50" />

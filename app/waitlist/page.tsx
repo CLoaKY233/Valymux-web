@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import { useSearchParams } from "next/navigation"
 import { PageLayout } from "@/components/page-layout"
 import { Github, Send, CheckCircle, Zap, Shield, Eye, Code, Users } from "lucide-react"
 import gsap from "gsap"
@@ -29,6 +30,8 @@ export default function WaitlistPage() {
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const searchParams = useSearchParams()
+  const prefillEmail = searchParams.get("email") ?? ""
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -154,6 +157,7 @@ export default function WaitlistPage() {
                             name="email"
                             type="email"
                             placeholder="your@email.com"
+                            defaultValue={prefillEmail}
                             required
                             className="w-full bg-transparent px-5 py-3.5 text-sm text-[#44474a] placeholder-[#a3b1c6] outline-none font-light"
                           />

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import { Copy, Check, Rocket, Github, MessageSquare } from "lucide-react"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { useGitHubStars } from "@/hooks/use-github-stars"
@@ -13,6 +14,8 @@ export function CTAScene() {
   const sectionRef = useRef<HTMLDivElement>(null)
   const { stars, loading } = useGitHubStars()
   const [copied, setCopied] = useState(false)
+  const [ctaEmail, setCtaEmail] = useState("")
+  const router = useRouter()
   const command = "git clone https://github.com/CLoaKY233/Valymux.git"
 
   const handleCopy = async () => {
@@ -79,12 +82,18 @@ export function CTAScene() {
             <input
               type="email"
               placeholder="your@email.com"
+              value={ctaEmail}
+              onChange={(e) => setCtaEmail(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && router.push(`/waitlist${ctaEmail ? `?email=${encodeURIComponent(ctaEmail)}` : ""}`)}
               className="flex-1 bg-transparent px-5 py-3 text-sm text-[#44474a] placeholder-[#a3b1c6] outline-none font-light"
             />
-            <Link href="/waitlist" className="neo-convex px-6 py-3 rounded-full flex items-center gap-2 shrink-0">
+            <button
+              onClick={() => router.push(`/waitlist${ctaEmail ? `?email=${encodeURIComponent(ctaEmail)}` : ""}`)}
+              className="neo-convex px-6 py-3 rounded-full flex items-center gap-2 shrink-0"
+            >
               <Rocket className="w-4 h-4 text-[#ff570a]/50" />
               <span className="font-medium text-sm text-[#44474a]">Join Waitlist</span>
-            </Link>
+            </button>
           </div>
         </div>
 
