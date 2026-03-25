@@ -50,7 +50,7 @@ export async function POST(req: NextRequest) {
   } catch {
     return NextResponse.json({ error: "Failed to save. Please try again." }, { status: 500 });
   } finally {
-    await db.close();
+    try { await db.close(); } catch { /* ignore close errors */ }
   }
 }
 
