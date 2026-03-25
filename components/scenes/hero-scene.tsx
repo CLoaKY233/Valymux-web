@@ -127,30 +127,22 @@ export function HeroScene() {
               </a>
             </div>
 
-            <div className="hero-stat flex items-center gap-3 md:gap-4 pt-4 max-w-lg opacity-0">
-              {/* Milestone: Core Engine — done */}
-              <div className="neo-pressed px-4 py-2.5 rounded-full flex items-center gap-2.5">
-                <div className="w-2 h-2 rounded-full bg-emerald-400/60" />
+            <div className="hero-stat flex items-center gap-2 md:gap-3 pt-4 opacity-0">
+              <div className="neo-pressed px-3 md:px-4 py-2 md:py-2.5 rounded-full">
                 <span className="text-[9px] md:text-[10px] tracking-[0.15em] uppercase text-[#44474a] font-medium">
-                  Core Engine
+                  Open Source
                 </span>
               </div>
-              {/* Connector */}
-              <div className="neo-pressed w-6 h-0.5 rounded-full shrink-0" />
-              {/* Milestone: Provider Layer — in progress */}
-              <div className="neo-convex px-4 py-2.5 rounded-full flex items-center gap-2.5 border border-[#ff570a]/15">
-                <div className="w-2 h-2 rounded-full bg-amber-400/60 animate-pulse" />
+              <span className="text-[#a3b1c6]/50 text-xs">•</span>
+              <div className="neo-pressed px-3 md:px-4 py-2 md:py-2.5 rounded-full">
                 <span className="text-[9px] md:text-[10px] tracking-[0.15em] uppercase text-[#44474a] font-medium">
-                  Providers
+                  Rust Engine
                 </span>
               </div>
-              {/* Connector */}
-              <div className="neo-pressed w-6 h-0.5 rounded-full shrink-0" />
-              {/* Milestone: MVP — upcoming */}
-              <div className="neo-pressed px-4 py-2.5 rounded-full flex items-center gap-2.5">
-                <div className="w-2 h-2 rounded-full bg-[#a3b1c6]/30" />
-                <span className="text-[9px] md:text-[10px] tracking-[0.15em] uppercase text-[#7d8da1] font-medium">
-                  MVP · Apr 2026
+              <span className="text-[#a3b1c6]/50 text-xs">•</span>
+              <div className="neo-pressed px-3 md:px-4 py-2 md:py-2.5 rounded-full">
+                <span className="text-[9px] md:text-[10px] tracking-[0.15em] uppercase text-[#44474a] font-medium">
+                  Zero Lock-in
                 </span>
               </div>
             </div>

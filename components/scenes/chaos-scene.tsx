@@ -27,7 +27,7 @@ export function ChaosScene() {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top top",
-          end: "+=180%",
+          end: "+=120%",
           pin: true,
           scrub: 1,
           pinSpacing: true,
@@ -36,7 +36,7 @@ export function ChaosScene() {
 
       tl.fromTo(".chaos-heading",
         { y: 50, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.2 },
+        { y: 0, opacity: 1, duration: 0.12 },
         0
       )
 
@@ -45,11 +45,11 @@ export function ChaosScene() {
 
         tl.fromTo(`.chaos-card-${i}`,
           {
-            x: isLeft ? -500 : 500,
-            y: gsap.utils.random(-80, 80),
-            rotation: gsap.utils.random(-20, 20),
+            x: isLeft ? -600 : 600,
+            y: gsap.utils.random(-100, 100),
+            rotation: gsap.utils.random(-25, 25),
             opacity: 0,
-            scale: 0.7,
+            scale: 0.6,
           },
           {
             x: 0,
@@ -57,32 +57,39 @@ export function ChaosScene() {
             rotation: 0,
             opacity: 1,
             scale: 1,
-            duration: 0.12,
-            ease: "back.out(1.4)",
+            duration: 0.1,
+            ease: "back.out(1.5)",
           },
-          0.15 + i * 0.04
+          0.1 + i * 0.04
         )
       })
 
       tl.to(".chaos-card", {
-        x: "random(-6, 6)",
-        y: "random(-4, 4)",
-        rotation: "random(-2, 2)",
-        duration: 0.15,
+        x: "random(-8, 8)",
+        y: "random(-6, 6)",
+        rotation: "random(-3, 3)",
+        duration: 0.1,
         stagger: { each: 0.02, from: "random" },
-      }, 0.65)
+      }, 0.5)
 
       tl.fromTo(".chaos-summary",
         { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.1 },
-        0.72
+        { y: 0, opacity: 1, duration: 0.08 },
+        0.6
       )
 
       tl.fromTo(".chaos-glow",
-        { opacity: 0, scale: 0.8 },
-        { opacity: 0.2, scale: 1.2, duration: 0.3 },
-        0.5
+        { opacity: 0, scale: 0.6 },
+        { opacity: 0.2, scale: 1.2, duration: 0.15 },
+        0.35
       )
+
+      tl.to(".chaos-all", {
+        opacity: 0,
+        y: -30,
+        duration: 0.15,
+      }, 0.75)
+
     }, sectionRef)
 
     return () => ctx.revert()
@@ -93,17 +100,17 @@ export function ChaosScene() {
       <div
         className="chaos-glow absolute pointer-events-none opacity-0"
         style={{
-          width: 700,
-          height: 500,
+          width: 800,
+          height: 600,
           left: "50%",
           top: "50%",
           transform: "translate(-50%, -50%)",
-          background: "radial-gradient(ellipse, rgba(255,87,11,0.08) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse, rgba(255,87,11,0.1) 0%, transparent 60%)",
           borderRadius: "50%",
         }}
       />
 
-      <div className="relative z-10 max-w-4xl mx-auto px-6 w-full">
+      <div className="chaos-all relative z-10 max-w-4xl mx-auto px-6 w-full">
         <div className="chaos-heading text-center mb-12 md:mb-14 opacity-0">
           <span className="text-[10px] tracking-[0.5em] uppercase text-[#ff570a]/50 font-medium">
             The Problem
@@ -118,7 +125,7 @@ export function ChaosScene() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 max-w-2xl mx-auto">
+        <div className="chaos-cards-container grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 max-w-2xl mx-auto">
           {painPoints.map((point, i) => {
             const Icon = point.icon
             return (

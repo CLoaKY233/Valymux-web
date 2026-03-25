@@ -20,12 +20,12 @@ export function TrustScene() {
           {
             y: 0,
             opacity: 1,
-            duration: 0.8,
+            duration: 0.5,
             ease: "power2.out",
             scrollTrigger: {
               trigger: el,
-              start: "top 85%",
-              end: "top 55%",
+              start: "top 80%",
+              end: "top 65%",
               scrub: 1,
             },
           }
