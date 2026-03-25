@@ -15,7 +15,7 @@ export default function WaitlistPage() {
   return (
     <>
       <BreadcrumbJsonLd items={[{ name: "Waitlist", path: "/waitlist" }]} />
-      <Suspense>
+      <Suspense fallback={<div className="min-h-screen" />}>
         <WaitlistContent />
       </Suspense>
     </>

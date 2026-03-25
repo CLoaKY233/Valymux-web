@@ -15,6 +15,7 @@ export default function FAQContent() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
       gsap.utils.toArray<HTMLElement>(".faq-reveal").forEach((el) => {
         gsap.fromTo(el,
           { y: 30, opacity: 0 },

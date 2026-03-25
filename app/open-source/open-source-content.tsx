@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { PageLayout } from "@/components/page-layout";
+import { GITHUB_URL } from "@/lib/seo";
 import {
   Github,
   Eye,
@@ -79,7 +80,7 @@ export default function OpenSourceContent() {
         <section className="px-6 md:px-12 mb-20 md:mb-28">
           <div className="oss-reveal max-w-md mx-auto">
             <a
-              href="https://github.com/cloaky233/Valymux"
+              href={GITHUB_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="block neo-convex p-8 md:p-10 rounded-4xl text-center group hover:scale-[1.02] transition-transform duration-300"
@@ -89,7 +90,7 @@ export default function OpenSourceContent() {
                 valymux/core
               </div>
               <div className="font-mono text-xs text-[#7d8da1]">
-                github.com/cloaky233/Valymux
+                {GITHUB_URL.replace("https://", "")}
               </div>
               <div className="grid grid-cols-3 gap-3 mt-6">
                 <div className="neo-pressed p-3 rounded-xl text-center">
@@ -170,7 +171,7 @@ export default function OpenSourceContent() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://github.com/cloaky233/Valymux"
+                href={GITHUB_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="neo-convex px-8 py-4 rounded-4xl inline-flex items-center justify-center gap-3"

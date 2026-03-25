@@ -194,7 +194,7 @@ export default function WaitlistContent() {
                     </div>
 
                     {error && (
-                      <p className="text-xs text-red-400/70 mt-4 text-center">{error}</p>
+                      <p role="alert" className="text-xs text-red-400/70 mt-4 text-center">{error}</p>
                     )}
                     <button
                       type="submit"

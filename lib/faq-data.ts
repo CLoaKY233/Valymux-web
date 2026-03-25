@@ -33,7 +33,7 @@ export const faqs = [
   },
   {
     q: "What is the MVP timeline?",
-    a: "We are aiming for the end of April 2026.",
+    a: "We are targeting Q2 2026.",
   },
   {
     q: "Can I give feedback now?",
