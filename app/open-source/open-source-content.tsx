@@ -30,6 +30,7 @@ export default function OpenSourceContent() {
   const pageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
     const ctx = gsap.context(() => {
       gsap.utils.toArray<HTMLElement>(".oss-reveal").forEach((el) => {
         gsap.fromTo(

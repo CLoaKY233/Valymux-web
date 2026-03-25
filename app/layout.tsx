@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Outfit, JetBrains_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import { OrganizationJsonLd, WebSiteJsonLd } from '@/components/json-ld'
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION, OG_IMAGE, TWITTER_HANDLE } from '@/lib/seo'
 import './globals.css'
@@ -63,6 +64,7 @@ export default function RootLayout({
         <WebSiteJsonLd />
         {children}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
