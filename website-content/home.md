@@ -8,7 +8,7 @@ One place to connect, route, translate, and observe LLM traffic without fighting
 
 ## Subheadline
 
-We are building the layer AI engineers wish they had from day one: safe by default, fast under load, and transparent enough to trust in production.
+We are building the layer AI engineers wish they had from day one: safe by default, fast under load, and transparent enough to trust when it ships.
 
 ## Primary Message
 
@@ -81,7 +81,7 @@ Open source matters to us because trust matters, feedback matters, and builders 
 
 We are early.
 
-The product is actively being built now, and the MVP is targeted for the end of April 2026.
+The core engine is built in Rust. The provider abstraction layer is actively being developed. The MVP is targeted for the end of April 2026.
 
 This is the right time to follow along, give feedback, and shape what comes next.
 

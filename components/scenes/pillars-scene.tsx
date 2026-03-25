@@ -121,14 +121,14 @@ export function PillarsScene() {
             </div>
 
             <p className="text-sm text-[#7d8da1] font-light leading-relaxed mb-6 flex-1">
-              Rust-native engine with zero garbage collection. Concurrent streaming
-              across providers. Internal overhead measured in microseconds.
+              Rust-native engine targeting zero garbage collection overhead. Concurrent streaming
+              across providers. Internal overhead designed to stay in microseconds.
             </p>
 
             <div className="space-y-4">
               <div>
                 <div className="flex justify-between text-[9px] tracking-widest text-[#7d8da1] mb-2">
-                  <span>INTERNAL OVERHEAD</span>
+                  <span>TARGET OVERHEAD</span>
                   <span className="text-[#44474a] font-medium">0.4ms</span>
                 </div>
                 <div className="neo-pressed h-2 w-full rounded-full overflow-hidden">
@@ -137,7 +137,7 @@ export function PillarsScene() {
               </div>
               <div>
                 <div className="flex justify-between text-[9px] tracking-widest text-[#7d8da1] mb-2">
-                  <span>P99 LATENCY</span>
+                  <span>TARGET P99</span>
                   <span className="text-[#44474a] font-medium">12ms</span>
                 </div>
                 <div className="neo-pressed h-2 w-full rounded-full overflow-hidden">
@@ -146,7 +146,7 @@ export function PillarsScene() {
               </div>
               <div>
                 <div className="flex justify-between text-[9px] tracking-widest text-[#7d8da1] mb-2">
-                  <span>CONCURRENT STREAMS</span>
+                  <span>DESIGN CAPACITY</span>
                   <span className="text-[#44474a] font-medium">10k+</span>
                 </div>
                 <div className="neo-pressed h-2 w-full rounded-full overflow-hidden">

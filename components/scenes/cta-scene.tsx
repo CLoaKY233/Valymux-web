@@ -5,13 +5,15 @@ import { Copy, Check, Rocket, Github } from "lucide-react"
 import Link from "next/link"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { useGitHubStars } from "@/hooks/use-github-stars"
 
 gsap.registerPlugin(ScrollTrigger)
 
 export function CTAScene() {
   const sectionRef = useRef<HTMLDivElement>(null)
+  const { stars, loading } = useGitHubStars()
   const [copied, setCopied] = useState(false)
-  const command = "docker run -p 8080:8080 valymux/core"
+  const command = "git clone https://github.com/CLoaKY233/Valymux.git"
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(command)
@@ -96,6 +98,11 @@ export function CTAScene() {
           >
             <Github className="w-5 h-5 text-[#7d8da1]" />
             <span className="font-medium text-[#7d8da1]">Star on GitHub</span>
+            {!loading && stars !== null && (
+              <span className="neo-pressed px-2.5 py-0.5 rounded-full text-[10px] font-medium text-[#44474a] tracking-wide">
+                {stars}
+              </span>
+            )}
           </a>
         </div>
 
@@ -117,7 +124,7 @@ export function CTAScene() {
             </button>
           </div>
           <p className="mt-6 text-[9px] md:text-[10px] uppercase tracking-[0.2em] text-[#7d8da1]">
-            OSS Edition • 100% Rust • Cloud Native
+            OSS • 100% Rust • Pre-Release
           </p>
         </div>
       </div>

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import { Terminal, Menu, X } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -106,7 +107,8 @@ export function Navbar() {
         style={{ backgroundColor: "rgba(224, 229, 236, 0.7)" }}
       >
         <div className="flex items-center gap-8 lg:gap-14">
-          <Link href="/" className="text-xl md:text-2xl font-light tracking-[0.2em] text-[#2d3436] hover:opacity-80 transition-opacity">
+          <Link href="/" className="flex items-center gap-3 text-xl md:text-2xl font-light tracking-[0.2em] text-[#2d3436] hover:opacity-80 transition-opacity">
+            <Image src="/logo.svg" alt="Valymux Logo" width={32} height={32} className="w-8 h-8 md:w-10 md:h-10" />
             VALYMUX
           </Link>
           <div className="hidden lg:flex gap-8 items-center">
