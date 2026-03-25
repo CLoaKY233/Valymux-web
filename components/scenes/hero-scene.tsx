@@ -6,8 +6,13 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGitHubStars } from "@/hooks/use-github-stars";
+import {
+  configureScrollTrigger,
+  shouldSkipSceneAnimations,
+} from "@/lib/animation";
 
 gsap.registerPlugin(ScrollTrigger);
+configureScrollTrigger();
 
 export function HeroScene() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -17,6 +22,21 @@ export function HeroScene() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      if (shouldSkipSceneAnimations()) {
+        gsap.set(
+          [
+            ".hero-label",
+            ".hero-headline",
+            ".hero-subtitle",
+            ".hero-cta",
+            ".hero-stat",
+            diagramRef.current,
+          ],
+          { opacity: 1, y: 0 },
+        );
+        return;
+      }
+
       // Entrance animations on load
       const tl = gsap.timeline({ delay: 0.3 });
 
@@ -129,7 +149,10 @@ export function HeroScene() {
 
             <p className="hero-cta text-xs text-[#a3b1c6] font-light opacity-0">
               Already building with AI?{" "}
-              <Link href="/feedback" className="text-[#7d8da1] hover:text-[#44474a] underline underline-offset-2 transition-colors">
+              <Link
+                href="/feedback"
+                className="text-[#7d8da1] hover:text-[#44474a] underline underline-offset-2 transition-colors"
+              >
                 Share your experience →
               </Link>
             </p>

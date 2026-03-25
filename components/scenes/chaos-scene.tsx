@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { shouldSkipSceneAnimations } from "@/lib/animation";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -48,6 +49,19 @@ export function ChaosScene() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      if (shouldSkipSceneAnimations()) {
+        gsap.set(
+          [
+            ".chaos-heading",
+            ".chaos-summary",
+            ".chaos-glow",
+            ...painPoints.map((_, i) => `.chaos-card-${i}`),
+          ],
+          { opacity: 1, y: 0, x: 0, rotation: 0, scale: 1 },
+        );
+        return;
+      }
+
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -107,7 +121,7 @@ export function ChaosScene() {
         ".chaos-summary",
         { y: 20, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.08 },
-        1.20,
+        1.2,
       );
 
       tl.fromTo(
@@ -134,7 +148,7 @@ export function ChaosScene() {
   return (
     <section
       ref={sectionRef}
-      className="scene-section min-h-screen relative flex items-center justify-center overflow-hidden"
+      className="scene-section min-h-screen relative flex items-center justify-center py-24 md:py-0 overflow-hidden"
     >
       <div
         className="chaos-glow absolute pointer-events-none opacity-0"
