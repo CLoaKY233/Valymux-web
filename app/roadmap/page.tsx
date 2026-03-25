@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react"
 import { PageLayout } from "@/components/page-layout"
-import { Rocket } from "lucide-react"
+import { Rocket, MessageSquare } from "lucide-react"
 import Link from "next/link"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -207,10 +207,17 @@ export default function RoadmapPage() {
               We are building in public, listening closely, and staying focused on a product people actually want.
               Feedback will shape the roadmap as much as engineering will.
             </p>
-            <Link href="/waitlist" className="neo-convex px-8 py-4 rounded-4xl inline-flex items-center gap-3">
-              <Rocket className="w-4 h-4 text-[#ff570a]/50" />
-              <span className="font-medium text-sm text-[#44474a]">Shape the Roadmap</span>
-            </Link>
+            <h2 className="sr-only">Get involved</h2>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/waitlist" className="neo-convex px-8 py-4 rounded-4xl inline-flex items-center gap-3">
+                <Rocket className="w-4 h-4 text-[#ff570a]/50" />
+                <span className="font-medium text-sm text-[#44474a]">Shape the Roadmap</span>
+              </Link>
+              <Link href="/feedback" className="neo-button px-8 py-4 rounded-4xl inline-flex items-center gap-3">
+                <MessageSquare className="w-4 h-4 text-[#7d8da1]" />
+                <span className="font-medium text-sm text-[#7d8da1]">Share your experience</span>
+              </Link>
+            </div>
           </div>
         </section>
       </div>

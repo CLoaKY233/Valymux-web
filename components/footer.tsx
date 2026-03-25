@@ -30,6 +30,7 @@ export function Footer() {
               <Link className="text-xs font-light text-[#7d8da1] hover:text-[#44474a] transition-colors" href="/open-source">Open Source</Link>
               <a className="text-xs font-light text-[#7d8da1] hover:text-[#44474a] transition-colors" href="https://github.com/cloaky233/Valymux" target="_blank" rel="noopener noreferrer">GitHub</a>
               <Link className="text-xs font-light text-[#7d8da1] hover:text-[#44474a] transition-colors" href="/faq">FAQ</Link>
+              <Link className="text-xs font-light text-[#7d8da1] hover:text-[#44474a] transition-colors" href="/feedback">Your experience</Link>
             </div>
           </div>
 
@@ -47,8 +48,8 @@ export function Footer() {
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-8 border-t border-white/15">
           <span className="text-[10px] text-[#7d8da1] uppercase tracking-widest">© 2026 Valymux</span>
           <div className="flex items-center gap-4 neo-pressed px-5 py-2.5 rounded-full">
-            <div className="w-1.5 h-1.5 rounded-full bg-blue-300 glow-blue" />
-            <span className="text-[9px] font-medium text-[#7d8da1] tracking-widest uppercase">Systems Active</span>
+            <div className="w-1.5 h-1.5 rounded-full bg-amber-400/60 animate-pulse" />
+            <span className="text-[9px] font-medium text-[#7d8da1] tracking-widest uppercase">Building in Public</span>
           </div>
         </div>
       </div>

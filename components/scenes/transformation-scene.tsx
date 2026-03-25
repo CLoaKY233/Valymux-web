@@ -47,7 +47,7 @@ export function TransformationScene() {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top top",
-          end: "+=300%",
+          end: "+=265%",
           pin: true,
           scrub: 1,
           pinSpacing: true,
@@ -100,13 +100,7 @@ export function TransformationScene() {
           offset + 0.02
         )
 
-        // Previous step dims (except the last one)
-        if (i > 0) {
-          tl.to(`.transform-step-${i - 1}`, {
-            opacity: 0.4,
-            duration: 0.08,
-          }, offset)
-        }
+        // Previous steps stay fully visible
       })
 
       // Phase 5: Success line appears

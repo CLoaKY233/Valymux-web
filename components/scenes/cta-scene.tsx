@@ -1,17 +1,22 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Copy, Check, Rocket, Github } from "lucide-react"
+import { Copy, Check, Rocket, Github, MessageSquare } from "lucide-react"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { useGitHubStars } from "@/hooks/use-github-stars"
 
 gsap.registerPlugin(ScrollTrigger)
 
 export function CTAScene() {
   const sectionRef = useRef<HTMLDivElement>(null)
+  const { stars, loading } = useGitHubStars()
   const [copied, setCopied] = useState(false)
-  const command = "docker run -p 8080:8080 valymux/core"
+  const [ctaEmail, setCtaEmail] = useState("")
+  const router = useRouter()
+  const command = "git clone https://github.com/CLoaKY233/Valymux.git"
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(command)
@@ -27,12 +32,12 @@ export function CTAScene() {
           {
             y: 0,
             opacity: 1,
-            duration: 0.8,
+            duration: 0.5,
             ease: "power2.out",
             scrollTrigger: {
               trigger: el,
-              start: "top 85%",
-              end: "top 60%",
+              start: "top 80%",
+              end: "top 68%",
               scrub: 1,
             },
           }
@@ -77,12 +82,18 @@ export function CTAScene() {
             <input
               type="email"
               placeholder="your@email.com"
+              value={ctaEmail}
+              onChange={(e) => setCtaEmail(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && router.push(`/waitlist${ctaEmail ? `?email=${encodeURIComponent(ctaEmail)}` : ""}`)}
               className="flex-1 bg-transparent px-5 py-3 text-sm text-[#44474a] placeholder-[#a3b1c6] outline-none font-light"
             />
-            <Link href="/waitlist" className="neo-convex px-6 py-3 rounded-full flex items-center gap-2 shrink-0">
+            <button
+              onClick={() => router.push(`/waitlist${ctaEmail ? `?email=${encodeURIComponent(ctaEmail)}` : ""}`)}
+              className="neo-convex px-6 py-3 rounded-full flex items-center gap-2 shrink-0"
+            >
               <Rocket className="w-4 h-4 text-[#ff570a]/50" />
               <span className="font-medium text-sm text-[#44474a]">Join Waitlist</span>
-            </Link>
+            </button>
           </div>
         </div>
 
@@ -96,7 +107,23 @@ export function CTAScene() {
           >
             <Github className="w-5 h-5 text-[#7d8da1]" />
             <span className="font-medium text-[#7d8da1]">Star on GitHub</span>
+            {!loading && stars !== null && (
+              <span className="neo-pressed px-2.5 py-0.5 rounded-full text-[10px] font-medium text-[#44474a] tracking-wide">
+                {stars}
+              </span>
+            )}
           </a>
+        </div>
+
+        {/* Feedback CTA */}
+        <div className="cta-reveal mt-4">
+          <Link
+            href="/feedback"
+            className="neo-button px-7 py-3 rounded-full inline-flex items-center gap-2"
+          >
+            <MessageSquare className="w-3.5 h-3.5 text-[#7d8da1]" />
+            <span className="text-sm font-light text-[#7d8da1]">Already building with AI? Share your experience</span>
+          </Link>
         </div>
 
         {/* Docker command */}
@@ -117,7 +144,7 @@ export function CTAScene() {
             </button>
           </div>
           <p className="mt-6 text-[9px] md:text-[10px] uppercase tracking-[0.2em] text-[#7d8da1]">
-            OSS Edition • 100% Rust • Cloud Native
+            OSS • 100% Rust • Pre-Release
           </p>
         </div>
       </div>

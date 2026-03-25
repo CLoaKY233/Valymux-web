@@ -4,11 +4,13 @@ import { useEffect, useRef } from "react"
 import { Github, Heart, Users, BookOpen } from "lucide-react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { useGitHubStars } from "@/hooks/use-github-stars"
 
 gsap.registerPlugin(ScrollTrigger)
 
 export function TrustScene() {
   const sectionRef = useRef<HTMLDivElement>(null)
+  const { stars, loading } = useGitHubStars()
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -18,12 +20,12 @@ export function TrustScene() {
           {
             y: 0,
             opacity: 1,
-            duration: 0.8,
+            duration: 0.5,
             ease: "power2.out",
             scrollTrigger: {
               trigger: el,
-              start: "top 85%",
-              end: "top 55%",
+              start: "top 80%",
+              end: "top 65%",
               scrub: 1,
             },
           }
@@ -56,11 +58,13 @@ export function TrustScene() {
         <div className="trust-reveal neo-flat p-8 md:p-10 rounded-4xl md:rounded-5xl max-w-lg mx-auto mb-12">
           <div className="flex items-center justify-center gap-4 mb-6">
             <Github className="w-8 h-8 text-[#2d3436]" />
-            <span className="text-lg font-light tracking-[0.2em] text-[#2d3436]">valymux/core</span>
+            <span className="text-lg font-light tracking-[0.2em] text-[#2d3436]">CLoaKY233/Valymux</span>
           </div>
           <div className="grid grid-cols-3 gap-4">
             <div className="neo-pressed p-3 rounded-xl text-center">
-              <div className="text-lg font-light text-[#44474a]">★</div>
+              <div className="text-lg font-light text-[#44474a]">
+                {loading ? "★" : stars !== null ? stars : "★"}
+              </div>
               <div className="text-[8px] uppercase tracking-widest text-[#7d8da1] mt-1">Stars</div>
             </div>
             <div className="neo-pressed p-3 rounded-xl text-center">

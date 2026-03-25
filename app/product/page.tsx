@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react"
 import { PageLayout } from "@/components/page-layout"
-import { ArrowRight, Layers, Globe, Route, Activity, ShieldCheck, Rocket } from "lucide-react"
+import { ArrowRight, Layers, Globe, Route, Activity, ShieldCheck, Rocket, MessageSquare } from "lucide-react"
 import Link from "next/link"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -154,10 +154,16 @@ export default function ProductPage() {
             <h2 className="text-2xl md:text-3xl font-light tracking-tight text-[#2d3436] mb-6">
               AI infrastructure, without the headache.
             </h2>
-            <Link href="/waitlist" className="neo-convex px-8 py-4 rounded-4xl inline-flex items-center gap-3">
-              <Rocket className="w-4 h-4 text-[#ff570a]/50" />
-              <span className="font-medium text-sm text-[#44474a]">Join Waitlist</span>
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/waitlist" className="neo-convex px-8 py-4 rounded-4xl inline-flex items-center gap-3">
+                <Rocket className="w-4 h-4 text-[#ff570a]/50" />
+                <span className="font-medium text-sm text-[#44474a]">Join Waitlist</span>
+              </Link>
+              <Link href="/feedback" className="neo-button px-8 py-4 rounded-4xl inline-flex items-center gap-3">
+                <MessageSquare className="w-4 h-4 text-[#7d8da1]" />
+                <span className="font-medium text-sm text-[#7d8da1]">Share your experience</span>
+              </Link>
+            </div>
           </div>
         </section>
       </div>
