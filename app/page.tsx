@@ -1,33 +1,14 @@
-"use client"
+import type { Metadata } from "next"
+import { buildMetadata } from "@/lib/seo"
+import HomeContent from "./home-content"
 
-import { HeroScene } from "@/components/scenes/hero-scene"
-import { ChaosScene } from "@/components/scenes/chaos-scene"
-import { BridgeScene } from "@/components/scenes/bridge-scene"
-import { CompressionScene } from "@/components/scenes/compression-scene"
-import { TransformationScene } from "@/components/scenes/transformation-scene"
-import { PillarsScene } from "@/components/scenes/pillars-scene"
-import { DeveloperScene } from "@/components/scenes/developer-scene"
-import { TrustScene } from "@/components/scenes/trust-scene"
-import { CTAScene } from "@/components/scenes/cta-scene"
-import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/footer"
+export const metadata: Metadata = buildMetadata({
+  title: "The Simple Gateway for AI Providers",
+  description:
+    "One simple API endpoint. Every model at your fingertips. Zero latency overhead. The intelligent gateway for developers building with AI providers.",
+  path: "/",
+})
 
 export default function Home() {
-  return (
-    <>
-      <Navbar />
-      <main>
-        <HeroScene />
-        <ChaosScene />
-        <BridgeScene />
-        <CompressionScene />
-        <TransformationScene />
-        <PillarsScene />
-        <DeveloperScene />
-        <TrustScene />
-        <CTAScene />
-      </main>
-      <Footer />
-    </>
-  )
+  return <HomeContent />
 }
