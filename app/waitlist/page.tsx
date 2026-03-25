@@ -27,10 +27,39 @@ const interests = [
 export default function WaitlistPage() {
   const pageRef = useRef<HTMLDivElement>(null)
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setSubmitted(true)
+    setError(null)
+    setLoading(true)
+
+    const form = e.currentTarget
+    const data = {
+      name: (form.elements.namedItem("name") as HTMLInputElement).value,
+      email: (form.elements.namedItem("email") as HTMLInputElement).value,
+      role: (form.elements.namedItem("role") as HTMLInputElement).value,
+      message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
+    }
+
+    try {
+      const res = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      })
+      const json = await res.json()
+      if (!res.ok) {
+        setError(json.error ?? "Something went wrong. Please try again.")
+      } else {
+        setSubmitted(true)
+      }
+    } catch {
+      setError("Network error. Please try again.")
+    } finally {
+      setLoading(false)
+    }
   }
 
   useEffect(() => {
@@ -100,7 +129,7 @@ export default function WaitlistPage() {
                     </a>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="neo-flat p-8 md:p-10 rounded-4xl">
+                  <form onSubmit={handleSubmit} className="neo-flat p-8 md:p-10 rounded-4xl" noValidate>
                     <h3 className="text-lg font-medium text-[#2d3436] mb-6">Get early access</h3>
 
                     <div className="space-y-4">
@@ -160,12 +189,25 @@ export default function WaitlistPage() {
                       </div>
                     </div>
 
+                    {error && (
+                      <p className="text-xs text-red-400/70 mt-4 text-center">{error}</p>
+                    )}
                     <button
                       type="submit"
-                      className="neo-convex w-full py-4 rounded-[1.5rem] flex items-center justify-center gap-3 mt-6 group"
+                      disabled={loading}
+                      className="neo-convex w-full py-4 rounded-[1.5rem] flex items-center justify-center gap-3 mt-6 group disabled:opacity-60 disabled:cursor-not-allowed"
                     >
-                      <Send className="w-4 h-4 text-[#ff570a]/50 group-hover:translate-x-0.5 transition-transform" />
-                      <span className="font-medium text-sm text-[#44474a]">Join Waitlist</span>
+                      {loading ? (
+                        <>
+                          <div className="w-4 h-4 border-2 border-[#ff570a]/30 border-t-[#ff570a]/70 rounded-full animate-spin" />
+                          <span className="font-medium text-sm text-[#44474a]">Joining...</span>
+                        </>
+                      ) : (
+                        <>
+                          <Send className="w-4 h-4 text-[#ff570a]/50 group-hover:translate-x-0.5 transition-transform" />
+                          <span className="font-medium text-sm text-[#44474a]">Join Waitlist</span>
+                        </>
+                      )}
                     </button>
                   </form>
                 )}

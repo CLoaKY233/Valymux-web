@@ -30,6 +30,7 @@ export function Footer() {
               <Link className="text-xs font-light text-[#7d8da1] hover:text-[#44474a] transition-colors" href="/open-source">Open Source</Link>
               <a className="text-xs font-light text-[#7d8da1] hover:text-[#44474a] transition-colors" href="https://github.com/cloaky233/Valymux" target="_blank" rel="noopener noreferrer">GitHub</a>
               <Link className="text-xs font-light text-[#7d8da1] hover:text-[#44474a] transition-colors" href="/faq">FAQ</Link>
+              <Link className="text-xs font-light text-[#7d8da1] hover:text-[#44474a] transition-colors" href="/feedback">Share Your Story</Link>
             </div>
           </div>
 

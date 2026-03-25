@@ -16,6 +16,7 @@ const navLinks = [
   { label: "Roadmap", href: "/roadmap" },
   { label: "Open Source", href: "/open-source" },
   { label: "FAQ", href: "/faq" },
+  { label: "Share Story", href: "/feedback" },
 ]
 
 export function Navbar() {
