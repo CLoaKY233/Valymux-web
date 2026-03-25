@@ -91,7 +91,7 @@ export function HeroScene() {
                 <span className="font-medium text-sm text-[#44474a]">Join Waitlist</span>
               </Link>
               <a
-                href="https://github.com/cloaky233/Valygate"
+                href="https://github.com/cloaky233/Valymux"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hero-cta neo-button px-8 py-4 rounded-4xl flex items-center justify-center gap-3 opacity-0"

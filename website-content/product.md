@@ -1,10 +1,10 @@
 # Product
 
-## What Valygate Does
+## What Valymux Does
 
-Valygate is the gateway between your application and the AI provider ecosystem.
+Valymux is the gateway between your application and the AI provider ecosystem.
 
-It helps developers use one stable interface while Valygate handles the provider-specific differences behind the scenes.
+It helps developers use one stable interface while Valymux handles the provider-specific differences behind the scenes.
 
 ## The Problem
 
@@ -20,9 +20,9 @@ Modern AI teams are dealing with a messy reality:
 
 That complexity grows every time you add a new provider, model, or team.
 
-## The Valygate Approach
+## The Valymux Approach
 
-Instead of making every application speak every provider dialect, Valygate normalizes the chaos into a single workflow.
+Instead of making every application speak every provider dialect, Valymux normalizes the chaos into a single workflow.
 
 The product is being shaped around a few core ideas:
 
@@ -32,7 +32,7 @@ Use one way to send requests.
 
 ### 2. Translate provider differences
 
-Let Valygate adapt schemas, parameters, and formats where needed.
+Let Valymux adapt schemas, parameters, and formats where needed.
 
 ### 3. Route intelligently
 
@@ -63,7 +63,7 @@ The codebase already points to a real product direction:
 
 For an AI engineer, switching providers should not feel like starting over.
 
-Valygate is being built to make provider choice less fragile, integrations less repetitive, and observability much easier to trust.
+Valymux is being built to make provider choice less fragile, integrations less repetitive, and observability much easier to trust.
 
 ## What We Want Users To Feel
 

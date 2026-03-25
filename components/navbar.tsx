@@ -107,7 +107,7 @@ export function Navbar() {
       >
         <div className="flex items-center gap-8 lg:gap-14">
           <Link href="/" className="text-xl md:text-2xl font-light tracking-[0.2em] text-[#2d3436] hover:opacity-80 transition-opacity">
-            VALYGATE
+            VALYMUX
           </Link>
           <div className="hidden lg:flex gap-8 items-center">
             {navLinks.map((link) => (
@@ -165,7 +165,7 @@ export function Navbar() {
             ))}
             <div className="h-px w-20 bg-[#a3b1c6]/20 my-2" />
             <a
-              href="https://github.com/cloaky233/Valygate"
+              href="https://github.com/cloaky233/Valymux"
               target="_blank"
               rel="noopener noreferrer"
               onClick={closeMobileMenu}

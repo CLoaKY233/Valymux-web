@@ -85,11 +85,11 @@ if (provider === "openai") {
               <div className="neo-convex px-3 py-1.5 rounded-full">
                 <span className="text-[9px] font-medium tracking-widest text-[#44474a] uppercase">After</span>
               </div>
-              <span className="text-xs text-[#7d8da1] font-light">One Valygate call</span>
+              <span className="text-xs text-[#7d8da1] font-light">One Valymux call</span>
             </div>
             <div className="neo-pressed p-5 rounded-2xl font-mono text-[11px] md:text-xs text-[#7d8da1] leading-relaxed overflow-x-auto">
               <pre className="whitespace-pre-wrap">{`// One client. Any provider.
-const res = await fetch("http://valygate/v1/chat", {
+const res = await fetch("http://valymux/v1/chat", {
   method: "POST",
   headers: {
     "Authorization": "Bearer vk_live_***",
@@ -144,7 +144,7 @@ const res = await fetch("http://valygate/v1/chat", {
             </div>
             <ArrowRight className="w-5 h-5 text-[#a3b1c6]" />
             <div className="neo-convex px-6 py-3 rounded-full text-sm font-medium text-[#2d3436] border border-[#ff570a]/10">
-              Valygate
+              Valymux
             </div>
             <ArrowRight className="w-5 h-5 text-[#a3b1c6]" />
             <div className="flex gap-2">

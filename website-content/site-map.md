@@ -1,11 +1,11 @@
-# Valygate Website Content Map
+# Valymux Website Content Map
 
 This document defines the pre-launch site structure and the copy for each page.
 
 ## Pages
 
 - `home.md` - Main landing page copy
-- `product.md` - What Valygate does and why it matters
+- `product.md` - What Valymux does and why it matters
 - `security.md` - Security, trust, and data handling
 - `roadmap.md` - What is shipping next and where the MVP is headed
 - `open-source.md` - Open source positioning and community message
@@ -21,7 +21,7 @@ This document defines the pre-launch site structure and the copy for each page.
 
 ## Core Message
 
-Valygate helps developers connect to many AI providers through one simple, stable layer.
+Valymux helps developers connect to many AI providers through one simple, stable layer.
 
 It reduces provider-specific glue code, normalizes differences across APIs and formats, and gives teams a safer and clearer way to route, manage, and observe AI traffic.
 

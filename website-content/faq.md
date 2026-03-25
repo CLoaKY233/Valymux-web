@@ -1,8 +1,8 @@
 # FAQ
 
-## What is Valygate?
+## What is Valymux?
 
-Valygate is an LLM gateway, proxy, and observability platform for developers who need one stable way to work across multiple AI providers.
+Valymux is an LLM gateway, proxy, and observability platform for developers who need one stable way to work across multiple AI providers.
 
 ## Who is it for?
 
@@ -18,7 +18,7 @@ Not yet.
 
 We are still building the core backend and product foundation, and the site is here to show progress, invite feedback, and start building an audience early.
 
-## What makes Valygate different?
+## What makes Valymux different?
 
 It focuses on three things at once:
 
@@ -36,7 +36,7 @@ OpenAI and Anthropic are the first provider paths in the codebase, with a design
 
 Yes.
 
-GitHub: `https://github.com/cloaky233/Valygate`
+GitHub: `https://github.com/cloaky233/Valymux`
 
 ## Will the core be free?
 
@@ -56,4 +56,4 @@ We are building this for developers, and the best feedback comes early.
 
 ## What should I expect next?
 
-More product progress, more clarity around the roadmap, and more proof that Valygate is becoming a real platform rather than just an idea.
+More product progress, more clarity around the roadmap, and more proof that Valymux is becoming a real platform rather than just an idea.

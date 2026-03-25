@@ -178,7 +178,7 @@ export function TransformationScene() {
                 <div className="w-2.5 h-2.5 rounded-full bg-[#f1f2f6]" />
                 <div className="w-2.5 h-2.5 rounded-full bg-[#f1f2f6]" />
                 <div className="w-2.5 h-2.5 rounded-full bg-[#f1f2f6]" />
-                <span className="ml-3 font-mono text-[9px] text-[#a3b1c6]">valygate-request-flow</span>
+                <span className="ml-3 font-mono text-[9px] text-[#a3b1c6]">valymux-request-flow</span>
               </div>
 
               {/* Request visualization */}
@@ -214,7 +214,7 @@ export function TransformationScene() {
               <div className="transform-flow flex items-center justify-center gap-3 mt-5 flex-wrap opacity-0">
                 <span className="neo-pressed px-3 py-1.5 rounded-full text-[8px] tracking-widest text-[#a3b1c6] uppercase">Your App</span>
                 <ArrowRight className="w-3 h-3 text-[#a3b1c6]" />
-                <span className="neo-convex px-3.5 py-1.5 rounded-full text-[8px] tracking-widest text-[#44474a] font-medium uppercase">Valygate</span>
+                <span className="neo-convex px-3.5 py-1.5 rounded-full text-[8px] tracking-widest text-[#44474a] font-medium uppercase">Valymux</span>
                 <ArrowRight className="w-3 h-3 text-[#a3b1c6]" />
                 <span className="neo-pressed px-3 py-1.5 rounded-full text-[8px] tracking-widest text-[#a3b1c6] uppercase">Provider</span>
               </div>

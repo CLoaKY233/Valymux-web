@@ -2,7 +2,7 @@
 
 ## Security First
 
-Valygate is being built with safety as a core product principle.
+Valymux is being built with safety as a core product principle.
 
 For us, security is not just compliance language. It is part of the developer experience.
 
@@ -71,7 +71,7 @@ As the product matures, we expect the security story to expand into:
 
 ## Security Message For The Site
 
-We are building Valygate to be the safe way to work across AI providers.
+We are building Valymux to be the safe way to work across AI providers.
 
 Not just fast.
 Not just flexible.

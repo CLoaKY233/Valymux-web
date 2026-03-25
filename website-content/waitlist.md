@@ -2,7 +2,7 @@
 
 ## Early Access
 
-Valygate is being built now, and we want the first people who care about AI infra to be part of the process.
+Valymux is being built now, and we want the first people who care about AI infra to be part of the process.
 
 If you are dealing with provider sprawl, model churn, custom integration code, or weak observability, we want to hear from you.
 

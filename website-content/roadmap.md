@@ -2,7 +2,7 @@
 
 ## Where We Are
 
-Valygate is in the foundation stage.
+Valymux is in the foundation stage.
 
 We are building the backend, the product core, and the trust layer at the same time the brand is preparing to launch publicly.
 
@@ -26,7 +26,7 @@ We are targeting the MVP for the end of April 2026.
 
 The goal is not to ship noise.
 
-The goal is to ship the smallest version of Valygate that gives developers a real reason to switch from ad hoc provider integrations to a cleaner platform.
+The goal is to ship the smallest version of Valymux that gives developers a real reason to switch from ad hoc provider integrations to a cleaner platform.
 
 ## Next Up
 

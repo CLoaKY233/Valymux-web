@@ -2,9 +2,9 @@
 
 ## Open Source From Day One
 
-Valygate is completely open source.
+Valymux is completely open source.
 
-GitHub: `https://github.com/cloaky233/Valygate`
+GitHub: `https://github.com/cloaky233/Valymux`
 
 ## Why We Made That Choice
 
@@ -26,7 +26,7 @@ People should be able to inspect how the gateway works, understand how requests 
 
 The best infrastructure tools are the ones people can read, trust, and improve.
 
-We want Valygate to be one of those tools.
+We want Valymux to be one of those tools.
 
 ## Community Signal
 

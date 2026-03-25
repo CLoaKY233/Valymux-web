@@ -97,7 +97,7 @@ export default function RoadmapPage() {
                 <span className="font-normal text-[#44474a]">Where we are headed.</span>
               </h1>
               <p className="text-[#7d8da1] font-light text-base md:text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
-                Valygate is in the foundation stage. We are building the backend, the product core, and the trust layer
+                Valymux is in the foundation stage. We are building the backend, the product core, and the trust layer
                 while the brand prepares to launch publicly.
               </p>
             </div>

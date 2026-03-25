@@ -11,8 +11,8 @@ gsap.registerPlugin(ScrollTrigger)
 
 const faqs = [
   {
-    q: "What is Valygate?",
-    a: "Valygate is an LLM gateway, proxy, and observability platform for developers who need one stable way to work across multiple AI providers.",
+    q: "What is Valymux?",
+    a: "Valymux is an LLM gateway, proxy, and observability platform for developers who need one stable way to work across multiple AI providers.",
   },
   {
     q: "Who is it for?",
@@ -27,7 +27,7 @@ const faqs = [
     a: "Not yet. We are still building the core backend and product foundation, and the site is here to show progress, invite feedback, and start building an audience early.",
   },
   {
-    q: "What makes Valygate different?",
+    q: "What makes Valymux different?",
     a: "It focuses on three things at once: safety, speed and concurrency, and observability — without throwing away developer experience.",
   },
   {
@@ -36,7 +36,7 @@ const faqs = [
   },
   {
     q: "Is it open source?",
-    a: "Yes, completely. GitHub: github.com/cloaky233/Valygate",
+    a: "Yes, completely. GitHub: github.com/cloaky233/Valymux",
   },
   {
     q: "Will the core be free?",

@@ -2,7 +2,7 @@
 
 ## Hero
 
-Valygate is the simple gateway for developers building with AI providers.
+Valymux is the simple gateway for developers building with AI providers.
 
 One place to connect, route, translate, and observe LLM traffic without fighting every provider’s API shape, rules, and quirks.
 
@@ -16,7 +16,7 @@ Every week brings a new model. Every provider brings a new format.
 
 That should not mean rewriting your app, rebuilding your integration logic, or scattering provider-specific code across your stack.
 
-Valygate gives you a single, stable way to work across providers so your team can move faster and stay sane.
+Valymux gives you a single, stable way to work across providers so your team can move faster and stay sane.
 
 ## Why We Exist
 
@@ -30,7 +30,7 @@ Teams are juggling:
 - secret handling across systems
 - poor visibility into what is actually happening
 
-Valygate exists to remove that pain.
+Valymux exists to remove that pain.
 
 ## What We Are Building
 
@@ -50,7 +50,7 @@ We treat security and access control as core product value, not optional polish.
 
 ### Speed and Concurrency
 
-Valygate is being built in Rust for performance, throughput, and predictable behavior under load.
+Valymux is being built in Rust for performance, throughput, and predictable behavior under load.
 
 ### Observability
 
@@ -71,9 +71,9 @@ We want the experience to feel simple:
 
 ## Open Source
 
-Valygate is completely open source.
+Valymux is completely open source.
 
-GitHub: `https://github.com/cloaky233/Valygate`
+GitHub: `https://github.com/cloaky233/Valymux`
 
 Open source matters to us because trust matters, feedback matters, and builders deserve visibility into the tools they rely on.
 

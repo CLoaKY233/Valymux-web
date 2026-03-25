@@ -11,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger)
 export function CTAScene() {
   const sectionRef = useRef<HTMLDivElement>(null)
   const [copied, setCopied] = useState(false)
-  const command = "docker run -p 8080:8080 valygate/core"
+  const command = "docker run -p 8080:8080 valymux/core"
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(command)
@@ -50,7 +50,7 @@ export function CTAScene() {
         <div className="cta-reveal flex justify-center mb-12">
           <div className="w-20 h-20 md:w-28 md:h-28 rounded-full border-2 border-[#ff570a]/20 gateway-pulse flex items-center justify-center">
             <div className="neo-convex w-14 h-14 md:w-20 md:h-20 rounded-full flex items-center justify-center">
-              <span className="text-sm md:text-lg font-light tracking-[0.3em] text-[#2d3436]">V</span>
+              <span className="text-sm md:text-lg font-light text-[#2d3436]">V</span>
             </div>
           </div>
         </div>
@@ -89,7 +89,7 @@ export function CTAScene() {
         {/* GitHub CTA */}
         <div className="cta-reveal mt-8">
           <a
-            href="https://github.com/cloaky233/Valygate"
+            href="https://github.com/cloaky233/Valymux"
             target="_blank"
             rel="noopener noreferrer"
             className="neo-button px-8 py-4 rounded-full inline-flex items-center gap-3"

@@ -70,7 +70,7 @@ export default function WaitlistPage() {
                     <span className="font-normal text-[#44474a]">waitlist.</span>
                   </h1>
                   <p className="text-[#7d8da1] font-light text-base md:text-lg mt-5 leading-relaxed">
-                    Valygate is being built now, and we want the first people who care about AI
+                    Valymux is being built now, and we want the first people who care about AI
                     infra to be part of the process.
                   </p>
                   <p className="text-[#7d8da1] font-light text-sm mt-4 leading-relaxed">
@@ -90,7 +90,7 @@ export default function WaitlistPage() {
                       We will be in touch as the MVP gets closer. In the meantime, star us on GitHub.
                     </p>
                     <a
-                      href="https://github.com/cloaky233/Valygate"
+                      href="https://github.com/cloaky233/Valymux"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="neo-button px-6 py-3 rounded-full inline-flex items-center gap-2 mt-6"

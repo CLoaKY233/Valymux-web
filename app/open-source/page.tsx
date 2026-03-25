@@ -79,17 +79,17 @@ export default function OpenSourcePage() {
         <section className="px-6 md:px-12 mb-20 md:mb-28">
           <div className="oss-reveal max-w-md mx-auto">
             <a
-              href="https://github.com/cloaky233/Valygate"
+              href="https://github.com/cloaky233/Valymux"
               target="_blank"
               rel="noopener noreferrer"
               className="block neo-convex p-8 md:p-10 rounded-4xl text-center group hover:scale-[1.02] transition-transform duration-300"
             >
               <Github className="w-12 h-12 text-[#2d3436] mx-auto mb-5" />
               <div className="text-xl font-light tracking-[0.15em] text-[#2d3436] mb-2">
-                valygate/core
+                valymux/core
               </div>
               <div className="font-mono text-xs text-[#7d8da1]">
-                github.com/cloaky233/Valygate
+                github.com/cloaky233/Valymux
               </div>
               <div className="grid grid-cols-3 gap-3 mt-6">
                 <div className="neo-pressed p-3 rounded-xl text-center">
@@ -155,7 +155,7 @@ export default function OpenSourcePage() {
             </h3>
             <p className="text-base text-[#7d8da1] font-light leading-relaxed max-w-lg mx-auto">
               The best infrastructure tools are the ones people can read, trust,
-              and improve. We want Valygate to be one of those tools.
+              and improve. We want Valymux to be one of those tools.
             </p>
           </div>
         </section>
@@ -170,7 +170,7 @@ export default function OpenSourcePage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://github.com/cloaky233/Valygate"
+                href="https://github.com/cloaky233/Valymux"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="neo-convex px-8 py-4 rounded-4xl inline-flex items-center justify-center gap-3"

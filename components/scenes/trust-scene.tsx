@@ -47,7 +47,7 @@ export function TrustScene() {
             <span className="font-normal text-[#44474a]">Shaped by developers.</span>
           </h2>
           <p className="text-[#7d8da1] font-light text-base md:text-lg mt-6 max-w-2xl mx-auto">
-            Valygate is open source from day one. We believe the infrastructure you depend on
+            Valymux is open source from day one. We believe the infrastructure you depend on
             should be transparent, auditable, and community-driven.
           </p>
         </div>
@@ -56,7 +56,7 @@ export function TrustScene() {
         <div className="trust-reveal neo-flat p-8 md:p-10 rounded-4xl md:rounded-5xl max-w-lg mx-auto mb-12">
           <div className="flex items-center justify-center gap-4 mb-6">
             <Github className="w-8 h-8 text-[#2d3436]" />
-            <span className="text-lg font-light tracking-[0.2em] text-[#2d3436]">valygate/core</span>
+            <span className="text-lg font-light tracking-[0.2em] text-[#2d3436]">valymux/core</span>
           </div>
           <div className="grid grid-cols-3 gap-4">
             <div className="neo-pressed p-3 rounded-xl text-center">

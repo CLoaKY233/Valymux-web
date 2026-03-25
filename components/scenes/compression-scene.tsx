@@ -122,7 +122,7 @@ export function CompressionScene() {
             <div className="neo-flat p-6 md:p-8 rounded-2xl border-2 border-[#ff570a]/10">
               <div className="flex items-center gap-3 mb-5">
                 <div className="w-2 h-2 rounded-full bg-emerald-400/50" />
-                <span className="text-xs font-medium text-[#44474a]">Valygate</span>
+                <span className="text-xs font-medium text-[#44474a]">Valymux</span>
                 <span className="ml-auto neo-convex px-2.5 py-1 rounded-full text-[8px] font-medium tracking-wider text-[#44474a]">UNIFIED</span>
               </div>
 

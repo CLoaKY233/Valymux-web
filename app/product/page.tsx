@@ -20,7 +20,7 @@ const problems = [
 
 const approach = [
   { icon: Layers, title: "Standardize the interface", desc: "Use one way to send requests. OpenAI-compatible from day one." },
-  { icon: Globe, title: "Translate provider differences", desc: "Valygate adapts schemas, parameters, and formats where needed." },
+  { icon: Globe, title: "Translate provider differences", desc: "Valymux adapts schemas, parameters, and formats where needed." },
   { icon: Route, title: "Route intelligently", desc: "Send requests to the right provider credential and model path." },
   { icon: Activity, title: "Keep the system observable", desc: "Log metadata so teams see latency, usage, errors, and volume." },
   { icon: ShieldCheck, title: "Keep developers in control", desc: "Simple management for keys, models, access, and policy." },
@@ -68,8 +68,8 @@ export default function ProductPage() {
                 <span className="font-normal text-[#44474a]">provider chaos.</span>
               </h1>
               <p className="text-[#7d8da1] font-light text-base md:text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
-                Valygate is the gateway between your application and the AI provider ecosystem.
-                It helps developers use one stable interface while Valygate handles the provider-specific differences behind the scenes.
+                Valymux is the gateway between your application and the AI provider ecosystem.
+                It helps developers use one stable interface while Valymux handles the provider-specific differences behind the scenes.
               </p>
             </div>
           </div>
@@ -97,15 +97,15 @@ export default function ProductPage() {
           </div>
         </section>
 
-        {/* The Valygate Approach */}
+        {/* The Valymux Approach */}
         <section className="px-6 md:px-12 mb-20 md:mb-28">
           <div className="max-w-5xl mx-auto">
             <div className="product-reveal text-center mb-14">
               <h2 className="text-2xl md:text-4xl font-light tracking-tight text-[#2d3436]">
-                The Valygate <span className="font-normal text-[#44474a]">Approach</span>
+                The Valymux <span className="font-normal text-[#44474a]">Approach</span>
               </h2>
               <p className="text-[#7d8da1] font-light mt-4 max-w-xl mx-auto">
-                Instead of making every application speak every provider dialect, Valygate normalizes the chaos into a single workflow.
+                Instead of making every application speak every provider dialect, Valymux normalizes the chaos into a single workflow.
               </p>
             </div>
             <div className="space-y-4">

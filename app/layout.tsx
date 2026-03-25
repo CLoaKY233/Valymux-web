@@ -16,7 +16,7 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Valygate | The Simple Gateway for AI Providers',
+  title: 'Valymux | The Simple Gateway for AI Providers',
   description: 'One simple API endpoint. Every model at your fingertips. Zero latency overhead. The intelligent gateway for developers building with AI providers.',
   icons: {
     icon: [
