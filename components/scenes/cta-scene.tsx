@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Copy, Check, Rocket, Github } from "lucide-react"
+import { Copy, Check, Rocket, Github, MessageSquare } from "lucide-react"
 import Link from "next/link"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -104,6 +104,17 @@ export function CTAScene() {
               </span>
             )}
           </a>
+        </div>
+
+        {/* Feedback CTA */}
+        <div className="cta-reveal mt-4">
+          <Link
+            href="/feedback"
+            className="neo-button px-7 py-3 rounded-full inline-flex items-center gap-2"
+          >
+            <MessageSquare className="w-3.5 h-3.5 text-[#7d8da1]" />
+            <span className="text-sm font-light text-[#7d8da1]">Already building with AI? Share your experience</span>
+          </Link>
         </div>
 
         {/* Docker command */}

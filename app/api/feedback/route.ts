@@ -28,13 +28,16 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Please share your story." }, { status: 400 });
   }
 
-  const name = sanitize(raw.name, 100);
-  const role = sanitize(raw.role, 100);
-  const company = sanitize(raw.company, 100);
-  const ideal_solution = sanitize(raw.ideal_solution, 2000);
+  const name = sanitize(raw.name, 100) || undefined;
+  const role = sanitize(raw.role, 100) || undefined;
+  const company = sanitize(raw.company, 100) || undefined;
+  const ideal_solution = sanitize(raw.ideal_solution, 2000) || undefined;
 
   const rawEmail = sanitize(raw.email, 254);
-  const email = rawEmail && EMAIL_RE.test(rawEmail) ? rawEmail : "";
+  if (rawEmail && !EMAIL_RE.test(rawEmail)) {
+    return NextResponse.json({ error: "Please enter a valid email address." }, { status: 400 });
+  }
+  const email = rawEmail || undefined;
 
   const db = await getDb().catch(() => null);
   if (!db) {
@@ -42,7 +45,7 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    await db.create(new Table("feedback")).content({ name, email, role, company, story, ideal_solution, created_at: new Date() });
+    await db.create(new Table("feedback")).content({ name, email, role, company, story, ideal_solution });
     return NextResponse.json({ success: true });
   } catch {
     return NextResponse.json({ error: "Failed to save. Please try again." }, { status: 500 });

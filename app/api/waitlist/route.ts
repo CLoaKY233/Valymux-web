@@ -28,9 +28,9 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "A valid email is required." }, { status: 400 });
   }
 
-  const name = sanitize(raw.name, 100);
-  const role = sanitize(raw.role, 100);
-  const message = sanitize(raw.message, 1000);
+  const name = sanitize(raw.name, 100) || undefined;
+  const role = sanitize(raw.role, 100) || undefined;
+  const message = sanitize(raw.message, 1000) || undefined;
 
   const db = await getDb().catch(() => null);
   if (!db) {
@@ -38,7 +38,7 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    await db.create(new Table("waitlist")).content({ name, email, role, message, created_at: new Date() });
+    await db.create(new Table("waitlist")).content({ name, email, role, message });
     return NextResponse.json({ success: true });
   } catch {
     return NextResponse.json({ error: "Failed to save. Please try again." }, { status: 500 });

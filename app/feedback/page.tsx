@@ -84,7 +84,8 @@ export default function FeedbackPage() {
               {/* Left: Copy */}
               <div className="lg:pt-2">
                 <div className="feedback-reveal">
-                  <span className="text-[10px] tracking-[0.5em] uppercase text-[#ff570a]/50 font-medium">Share Your Story</span>
+                  <h2 className="sr-only">Share your experience with Valymux AI infrastructure tools</h2>
+                  <span className="text-[10px] tracking-[0.5em] uppercase text-[#ff570a]/50 font-medium">Share your experience</span>
                   <h1 className="text-4xl md:text-5xl font-light tracking-tight text-[#2d3436] mt-4 leading-tight">
                     Your experience{" "}
                     <span className="font-normal text-[#44474a]">matters.</span>
@@ -249,7 +250,7 @@ export default function FeedbackPage() {
                       ) : (
                         <>
                           <Send className="w-4 h-4 text-[#ff570a]/50 group-hover:translate-x-0.5 transition-transform" />
-                          <span className="font-medium text-sm text-[#44474a]">Share Your Story</span>
+                          <span className="font-medium text-sm text-[#44474a]">Share your experience</span>
                         </>
                       )}
                     </button>

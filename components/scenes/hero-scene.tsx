@@ -127,6 +127,13 @@ export function HeroScene() {
               </a>
             </div>
 
+            <p className="hero-cta text-xs text-[#a3b1c6] font-light opacity-0">
+              Already building with AI?{" "}
+              <Link href="/feedback" className="text-[#7d8da1] hover:text-[#44474a] underline underline-offset-2 transition-colors">
+                Share your experience →
+              </Link>
+            </p>
+
             <div className="hero-stat flex items-center gap-2 md:gap-3 pt-4 opacity-0">
               <div className="neo-pressed px-3 md:px-4 py-2 md:py-2.5 rounded-full">
                 <span className="text-[9px] md:text-[10px] tracking-[0.15em] uppercase text-[#44474a] font-medium">
