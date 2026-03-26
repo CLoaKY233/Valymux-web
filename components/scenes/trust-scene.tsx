@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { Github, Heart, Users, BookOpen } from "lucide-react";
+import { Github, Heart, Users, BookOpen, Shield } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGitHubStars } from "@/hooks/use-github-stars";
@@ -62,8 +62,8 @@ export function TrustScene() {
           </h2>
           <p className="text-[#7d8da1] font-light text-base md:text-lg mt-6 max-w-2xl mx-auto">
             Valymux is open source from day one. We believe the infrastructure
-            you depend on should be transparent, auditable, and
-            community-driven.
+            you trust with your API keys should be transparent, auditable, and
+            under your control.
           </p>
         </div>
 
@@ -100,7 +100,7 @@ export function TrustScene() {
         </div>
 
         {/* Values */}
-        <div className="trust-reveal grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+        <div className="trust-reveal grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
           <div className="neo-pressed p-6 rounded-2xl text-center">
             <BookOpen className="w-6 h-6 text-[#7d8da1] mx-auto mb-3" />
             <h3 className="text-sm font-medium text-[#2d3436] mb-2">
@@ -124,6 +124,13 @@ export function TrustScene() {
             <h3 className="text-sm font-medium text-[#2d3436] mb-2">Honest</h3>
             <p className="text-xs text-[#7d8da1] font-light">
               We're early. We share what works, what doesn't, and what's next.
+            </p>
+          </div>
+          <div className="neo-pressed p-6 rounded-2xl text-center">
+            <Shield className="w-6 h-6 text-[#7d8da1] mx-auto mb-3" />
+            <h3 className="text-sm font-medium text-[#2d3436] mb-2">Secure</h3>
+            <p className="text-xs text-[#7d8da1] font-light">
+              Rust-native; avoids dynamic imports where possible. Audit the binary. Host it yourself.
             </p>
           </div>
         </div>

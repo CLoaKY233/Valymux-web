@@ -7,15 +7,17 @@ import { AnimationBootstrap } from '@/components/animation-bootstrap'
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION, OG_IMAGE, TWITTER_HANDLE } from '@/lib/seo'
 import './globals.css'
 
-const outfit = Outfit({ 
+const outfit = Outfit({
   subsets: ["latin"],
-  weight: ['200', '300', '400', '500', '600'],
+  weight: ['300', '400', '500'],
+  display: 'swap',
   variable: '--font-outfit'
 })
 
-const jetbrainsMono = JetBrains_Mono({ 
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  weight: ['400', '500'],
+  weight: ['400'],
+  display: 'swap',
   variable: '--font-jetbrains'
 })
 

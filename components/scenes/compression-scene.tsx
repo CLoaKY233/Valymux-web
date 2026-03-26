@@ -4,9 +4,10 @@ import { useEffect, useRef } from "react";
 import { ArrowRight, Sparkles } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { shouldSkipSceneAnimations } from "@/lib/animation";
+import { configureScrollTrigger, shouldSkipSceneAnimations, shouldSkipPinnedAnimations } from "@/lib/animation";
 
 gsap.registerPlugin(ScrollTrigger);
+configureScrollTrigger();
 
 const beforeApis = [
   {
@@ -45,6 +46,36 @@ export function CompressionScene() {
           ],
           { opacity: 1, y: 0, x: 0, scale: 1, rotation: 0 },
         );
+        return;
+      }
+
+      if (shouldSkipPinnedAnimations()) {
+        const allEls = [
+          ".compress-heading",
+          ".compress-chaos-label",
+          ".compress-arrow-container",
+          ".compress-gateway",
+          ".compress-unified",
+          ".compress-unified-content",
+          ".compress-stats",
+          ".compress-tagline",
+          ".compress-glow",
+          ".compress-sparkle",
+          ...beforeApis.map((_, i) => `.compress-api-${i}`),
+        ];
+        allEls.forEach((sel) => {
+          gsap.fromTo(
+            sel,
+            { y: 30, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 0.5,
+              ease: "power2.out",
+              scrollTrigger: { trigger: sel, start: "top 88%", end: "top 65%" },
+            },
+          );
+        });
         return;
       }
 

@@ -20,12 +20,12 @@ configureScrollTrigger();
 
 const painPoints = [
   {
-    label: "Different streaming formats",
+    label: "Different model names across providers",
     icon: Zap,
     color: "text-orange-400/50",
   },
   {
-    label: "Inconsistent tool schemas",
+    label: "Which parameters does this model support?",
     icon: Wrench,
     color: "text-slate-500/50",
   },
@@ -36,9 +36,9 @@ const painPoints = [
   },
   { label: "Provider lock-in risk", icon: Lock, color: "text-red-400/50" },
   { label: "No unified logging", icon: BarChart3, color: "text-blue-400/50" },
-  { label: "Mixed auth patterns", icon: Shield, color: "text-emerald-400/50" },
+  { label: "Provider docs change without warning", icon: Shield, color: "text-emerald-400/50" },
   {
-    label: "Version mismatches",
+    label: "Different streaming formats",
     icon: AlertTriangle,
     color: "text-yellow-400/50",
   },

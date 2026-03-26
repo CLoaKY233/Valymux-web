@@ -9,7 +9,7 @@ export function Footer() {
           <div className="md:col-span-1">
             <Link href="/" className="text-lg font-light tracking-[0.2em] text-[#2d3436]">VALYMUX</Link>
             <p className="text-xs text-[#7d8da1] font-light mt-3 leading-relaxed">
-              The simple gateway for developers building with AI providers.
+              One API across every AI provider. Rust-native, open source, self-hostable.
             </p>
           </div>
 

@@ -9,6 +9,12 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 gsap.registerPlugin(ScrollTrigger)
 
+const supplyChainFeatures = [
+  { label: "Compiled binary", desc: "No runtime package execution" },
+  { label: "AGPL source", desc: "Every line auditable" },
+  { label: "Self-hostable", desc: "Keys never leave your infra" },
+]
+
 const currentPosture = [
   { icon: Lock, text: "Provider API keys encrypted at rest" },
   { icon: KeyRound, text: "Virtual API keys stored as hashes, not plaintext" },
@@ -123,6 +129,31 @@ export default function SecurityContent() {
                   <p className="text-sm text-[#7d8da1] font-light">{p.desc}</p>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Supply Chain Context */}
+        <section className="px-6 md:px-12 mb-20 md:mb-28">
+          <div className="max-w-4xl mx-auto">
+            <div className="sec-reveal neo-flat p-6 md:p-8 rounded-4xl">
+              <h2 className="text-xl md:text-2xl font-light tracking-tight text-[#2d3436] mb-4">
+                Why the <span className="font-normal text-[#44474a]">language matters.</span>
+              </h2>
+              <p className="text-sm text-[#7d8da1] font-light leading-relaxed mb-4">
+                Recent incidents in the LLM tooling ecosystem showed how a compromised dependency can silently exfiltrate credentials from every downstream user — SSH keys, cloud credentials, API tokens — on import, before any code runs.
+              </p>
+              <p className="text-sm text-[#7d8da1] font-light leading-relaxed mb-6">
+                Valymux is written in Rust: compiled, statically linked, with no dynamic import hooks and no package manager running at runtime. There is no equivalent attack surface. You can audit the source, inspect the binary, and run it inside your own infrastructure with no external calls.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                {supplyChainFeatures.map((item) => (
+                  <div key={item.label} className="neo-pressed p-4 rounded-xl">
+                    <div className="text-xs font-medium text-[#2d3436] mb-1">{item.label}</div>
+                    <div className="text-[11px] text-[#7d8da1] font-light">{item.desc}</div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
