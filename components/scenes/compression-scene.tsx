@@ -92,24 +92,11 @@ export function CompressionScene() {
       tl.to(
         ".compress-apis-container",
         {
-          x: -30,
           opacity: 0.4,
           duration: 0.1,
         },
         0.5,
       );
-
-      beforeApis.forEach((_, i) => {
-        tl.to(
-          `.compress-api-${i}`,
-          {
-            y: (i - 1.5) * 8,
-            scale: 0.95,
-            duration: 0.08,
-          },
-          0.5 + i * 0.015,
-        );
-      });
 
       tl.fromTo(
         ".compress-gateway",

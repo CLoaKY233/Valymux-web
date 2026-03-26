@@ -180,7 +180,7 @@ export function HeroScene() {
           </div>
 
           {/* Right: Gateway diagram */}
-          <div ref={diagramRef} className="lg:col-span-5 opacity-0">
+          <div ref={diagramRef} className="hero-diagram lg:col-span-5 opacity-0">
             <div className="neo-flat p-8 md:p-10 rounded-[2.5rem] relative">
               <div className="flex justify-center gap-3 md:gap-4 mb-6">
                 {["API Call", "SDK", "cURL"].map((label) => (

@@ -79,7 +79,7 @@ export function ChaosScene() {
               opacity: 1,
               duration: 0.5,
               ease: "power2.out",
-              scrollTrigger: { trigger: sel, start: "top 88%", end: "top 65%", scrub: 1 },
+              scrollTrigger: { trigger: sel, start: "top 88%", end: "top 65%" },
             },
           );
         });

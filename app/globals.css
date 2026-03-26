@@ -276,7 +276,8 @@
   .hero-headline,
   .hero-subtitle,
   .hero-cta,
-  .hero-stat {
+  .hero-stat,
+  .hero-diagram {
     opacity: 1 !important;
     transform: none !important;
   }
