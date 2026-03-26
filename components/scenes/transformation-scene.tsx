@@ -1,11 +1,13 @@
-"use client"
+"use client";
 
-import { useEffect, useRef } from "react"
-import { ArrowRight, Globe, KeyRound, Activity, Route } from "lucide-react"
-import gsap from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { useEffect, useRef } from "react";
+import { ArrowRight, Globe, KeyRound, Activity, Route } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { configureScrollTrigger, shouldSkipSceneAnimations, shouldSkipPinnedAnimations } from "@/lib/animation";
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
+configureScrollTrigger();
 
 const steps = [
   {
@@ -36,13 +38,64 @@ const steps = [
     color: "text-purple-400/60",
     detail: "trace_id: abc123 | 182ms | 1.2k tokens | $0.003",
   },
-]
+];
 
 export function TransformationScene() {
-  const sectionRef = useRef<HTMLDivElement>(null)
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      if (shouldSkipSceneAnimations()) {
+        gsap.set(
+          [
+            ".transform-heading",
+            ".transform-request-line",
+            ".transform-success",
+            ".transform-flow",
+            ".transform-frame",
+            ...steps.map((_, i) => `.transform-step-${i}`),
+            ...steps.map((_, i) => `.transform-detail-${i}`),
+          ],
+          { opacity: 1, height: "auto", y: 0, x: 0, scaleX: 1 },
+        );
+        gsap.set(
+          steps.map((_, i) => `.transform-indicator-${i}`),
+          { opacity: 1, scaleX: 1, y: 0, x: 0 },
+        );
+        return;
+      }
+
+      if (shouldSkipPinnedAnimations()) {
+        const allEls = [
+          ".transform-heading",
+          ".transform-frame",
+          ".transform-request-line",
+          ".transform-success",
+          ".transform-flow",
+          ...steps.map((_, i) => `.transform-step-${i}`),
+          ...steps.map((_, i) => `.transform-detail-${i}`),
+        ];
+        allEls.forEach((sel) => {
+          gsap.fromTo(
+            sel,
+            { y: 30, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              height: "auto",
+              duration: 0.5,
+              ease: "power2.out",
+              scrollTrigger: { trigger: sel, start: "top 88%", end: "top 65%", scrub: 1 },
+            },
+          );
+        });
+        gsap.set(
+          steps.map((_, i) => `.transform-indicator-${i}`),
+          { scaleX: 1 },
+        );
+        return;
+      }
+
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -52,77 +105,94 @@ export function TransformationScene() {
           scrub: 1,
           pinSpacing: true,
         },
-      })
+      });
 
       // Phase 0: Heading appears
-      tl.fromTo(".transform-heading",
+      tl.fromTo(
+        ".transform-heading",
         { y: 40, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.08 },
-        0
-      )
+        0,
+      );
 
       // Phase 0: Product frame appears on the right
-      tl.fromTo(".transform-frame",
+      tl.fromTo(
+        ".transform-frame",
         { y: 50, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.1 },
-        0.02
-      )
+        0.02,
+      );
 
       // Phase 0: Request line appears
-      tl.fromTo(".transform-request-line",
+      tl.fromTo(
+        ".transform-request-line",
         { opacity: 0 },
         { opacity: 1, duration: 0.05 },
-        0.1
-      )
+        0.1,
+      );
 
       // Phase 1-4: Each step reveals one-by-one with staggered timing
       steps.forEach((_, i) => {
-        const offset = 0.14 + i * 0.2
+        const offset = 0.14 + i * 0.2;
 
         // Step card slides in from left
-        tl.fromTo(`.transform-step-${i}`,
+        tl.fromTo(
+          `.transform-step-${i}`,
           { x: -50, opacity: 0, scale: 0.95 },
           { x: 0, opacity: 1, scale: 1, duration: 0.1, ease: "power2.out" },
-          offset
-        )
+          offset,
+        );
 
         // Corresponding detail line appears in the product frame
-        tl.fromTo(`.transform-detail-${i}`,
+        tl.fromTo(
+          `.transform-detail-${i}`,
           { y: 8, opacity: 0, height: 0 },
-          { y: 0, opacity: 1, height: "auto", duration: 0.08, ease: "power2.out" },
-          offset + 0.04
-        )
+          {
+            y: 0,
+            opacity: 1,
+            height: "auto",
+            duration: 0.08,
+            ease: "power2.out",
+          },
+          offset + 0.04,
+        );
 
         // Active indicator grows
-        tl.fromTo(`.transform-indicator-${i}`,
+        tl.fromTo(
+          `.transform-indicator-${i}`,
           { scaleX: 0 },
           { scaleX: 1, duration: 0.06, transformOrigin: "left" },
-          offset + 0.02
-        )
+          offset + 0.02,
+        );
 
         // Previous steps stay fully visible
-      })
+      });
 
       // Phase 5: Success line appears
-      tl.fromTo(".transform-success",
+      tl.fromTo(
+        ".transform-success",
         { opacity: 0 },
         { opacity: 1, duration: 0.06 },
-        0.14 + steps.length * 0.2
-      )
+        0.14 + steps.length * 0.2,
+      );
 
       // Phase 5: Flow indicator appears
-      tl.fromTo(".transform-flow",
+      tl.fromTo(
+        ".transform-flow",
         { y: 15, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.06 },
-        0.16 + steps.length * 0.2
-      )
-    }, sectionRef)
+        0.16 + steps.length * 0.2,
+      );
+    }, sectionRef);
 
-    return () => ctx.revert()
-  }, [])
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <section ref={sectionRef} className="scene-section min-h-screen relative flex items-center px-6 md:px-12 grid-bg">
+    <section
+      ref={sectionRef}
+      className="scene-section min-h-screen relative flex items-center py-24 md:py-0 px-6 md:px-12 grid-bg"
+    >
       <div className="max-w-6xl mx-auto w-full">
         {/* Heading */}
         <div className="transform-heading text-center mb-10 md:mb-14 opacity-0">
@@ -140,7 +210,7 @@ export function TransformationScene() {
           {/* Left: Steps revealed one-by-one */}
           <div className="space-y-4">
             {steps.map((step, i) => {
-              const Icon = step.icon
+              const Icon = step.icon;
               return (
                 <div
                   key={step.title}
@@ -151,16 +221,20 @@ export function TransformationScene() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-3 mb-1.5">
-                      <h3 className="text-sm md:text-base font-medium text-[#2d3436]">{step.title}</h3>
+                      <h3 className="text-sm md:text-base font-medium text-[#2d3436]">
+                        {step.title}
+                      </h3>
                       <div
                         className={`transform-indicator-${i} h-0.5 w-10 bg-[#ff570a]/20 rounded-full`}
                         style={{ transform: "scaleX(0)" }}
                       />
                     </div>
-                    <p className="text-xs text-[#7d8da1] font-light leading-relaxed">{step.desc}</p>
+                    <p className="text-xs text-[#7d8da1] font-light leading-relaxed">
+                      {step.desc}
+                    </p>
                   </div>
                 </div>
-              )
+              );
             })}
           </div>
 
@@ -172,14 +246,17 @@ export function TransformationScene() {
                 <div className="w-2.5 h-2.5 rounded-full bg-[#f1f2f6]" />
                 <div className="w-2.5 h-2.5 rounded-full bg-[#f1f2f6]" />
                 <div className="w-2.5 h-2.5 rounded-full bg-[#f1f2f6]" />
-                <span className="ml-3 font-mono text-[9px] text-[#a3b1c6]">valymux-request-flow</span>
+                <span className="ml-3 font-mono text-[9px] text-[#a3b1c6]">
+                  valymux-request-flow
+                </span>
               </div>
 
               {/* Request visualization */}
               <div className="neo-pressed p-4 md:p-5 rounded-xl font-mono text-[10px] md:text-[11px] space-y-2.5">
                 {/* Request line */}
                 <div className="transform-request-line text-[#7d8da1] opacity-0">
-                  <span className="text-[#ff570a]/40">→</span> POST /v1/chat/completions
+                  <span className="text-[#ff570a]/40">→</span> POST
+                  /v1/chat/completions
                 </div>
 
                 <div className="h-px bg-[#a3b1c6]/10" />
@@ -191,8 +268,12 @@ export function TransformationScene() {
                     className={`transform-detail-${i} flex items-start gap-2 opacity-0 overflow-hidden`}
                     style={{ height: 0 }}
                   >
-                    <span className="text-[#ff570a]/30 shrink-0 leading-relaxed">│</span>
-                    <span className="text-[#44474a] leading-relaxed break-all">{step.detail}</span>
+                    <span className="text-[#ff570a]/30 shrink-0 leading-relaxed">
+                      │
+                    </span>
+                    <span className="text-[#44474a] leading-relaxed break-all">
+                      {step.detail}
+                    </span>
                   </div>
                 ))}
 
@@ -206,16 +287,22 @@ export function TransformationScene() {
 
               {/* Flow indicator */}
               <div className="transform-flow flex items-center justify-center gap-3 mt-5 flex-wrap opacity-0">
-                <span className="neo-pressed px-3 py-1.5 rounded-full text-[8px] tracking-widest text-[#a3b1c6] uppercase">Your App</span>
+                <span className="neo-pressed px-3 py-1.5 rounded-full text-[8px] tracking-widest text-[#a3b1c6] uppercase">
+                  Your App
+                </span>
                 <ArrowRight className="w-3 h-3 text-[#a3b1c6]" />
-                <span className="neo-convex px-3.5 py-1.5 rounded-full text-[8px] tracking-widest text-[#44474a] font-medium uppercase">Valymux</span>
+                <span className="neo-convex px-3.5 py-1.5 rounded-full text-[8px] tracking-widest text-[#44474a] font-medium uppercase">
+                  Valymux
+                </span>
                 <ArrowRight className="w-3 h-3 text-[#a3b1c6]" />
-                <span className="neo-pressed px-3 py-1.5 rounded-full text-[8px] tracking-widest text-[#a3b1c6] uppercase">Provider</span>
+                <span className="neo-pressed px-3 py-1.5 rounded-full text-[8px] tracking-widest text-[#a3b1c6] uppercase">
+                  Provider
+                </span>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

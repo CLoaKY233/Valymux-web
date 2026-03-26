@@ -1,20 +1,26 @@
-"use client"
+"use client";
 
-import { useEffect, useRef } from "react"
-import { SlidersHorizontal, ArrowRight } from "lucide-react"
-import gsap from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { useEffect, useRef } from "react";
+import { SlidersHorizontal, ArrowRight } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { shouldSkipSceneAnimations } from "@/lib/animation";
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 export function DeveloperScene() {
-  const sectionRef = useRef<HTMLDivElement>(null)
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Scroll-triggered reveals
+      if (shouldSkipSceneAnimations()) {
+        gsap.set(".dev-reveal", { opacity: 1, y: 0 });
+        return;
+      }
+
       gsap.utils.toArray<HTMLElement>(".dev-reveal").forEach((el) => {
-        gsap.fromTo(el,
+        gsap.fromTo(
+          el,
           { y: 50, opacity: 0 },
           {
             y: 0,
@@ -27,16 +33,19 @@ export function DeveloperScene() {
               end: "top 50%",
               scrub: 1,
             },
-          }
-        )
-      })
-    }, sectionRef)
+          },
+        );
+      });
+    }, sectionRef);
 
-    return () => ctx.revert()
-  }, [])
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <section ref={sectionRef} className="scene-section px-6 md:px-12 py-24 md:py-40">
+    <section
+      ref={sectionRef}
+      className="scene-section px-6 md:px-12 py-24 md:py-40"
+    >
       <div className="max-w-6xl mx-auto">
         {/* Heading */}
         <div className="dev-reveal mb-16 md:mb-24 text-center">
@@ -55,9 +64,13 @@ export function DeveloperScene() {
           <div className="neo-flat p-6 md:p-8 rounded-4xl md:rounded-[3rem]">
             <div className="flex items-center gap-3 mb-6">
               <div className="neo-pressed px-3 py-1.5 rounded-full">
-                <span className="text-[9px] font-medium tracking-widest text-[#ff570a]/60 uppercase">Before</span>
+                <span className="text-[9px] font-medium tracking-widest text-[#ff570a]/60 uppercase">
+                  Before
+                </span>
               </div>
-              <span className="text-xs text-[#7d8da1] font-light">Multi-provider chaos</span>
+              <span className="text-xs text-[#7d8da1] font-light">
+                Multi-provider chaos
+              </span>
             </div>
             <div className="neo-pressed p-5 rounded-2xl font-mono text-[11px] md:text-xs text-[#7d8da1] leading-relaxed overflow-x-auto">
               <pre className="whitespace-pre-wrap">{`// Different client for each provider
@@ -83,9 +96,13 @@ if (provider === "openai") {
           <div className="neo-flat p-6 md:p-8 rounded-4xl md:rounded-[3rem] border-2 border-[#ff570a]/10">
             <div className="flex items-center gap-3 mb-6">
               <div className="neo-convex px-3 py-1.5 rounded-full">
-                <span className="text-[9px] font-medium tracking-widest text-[#44474a] uppercase">After</span>
+                <span className="text-[9px] font-medium tracking-widest text-[#44474a] uppercase">
+                  After
+                </span>
               </div>
-              <span className="text-xs text-[#7d8da1] font-light">One Valymux call</span>
+              <span className="text-xs text-[#7d8da1] font-light">
+                One Valymux call
+              </span>
             </div>
             <div className="neo-pressed p-5 rounded-2xl font-mono text-[11px] md:text-xs text-[#7d8da1] leading-relaxed overflow-x-auto">
               <pre className="whitespace-pre-wrap">{`// One client. Any provider.
@@ -115,23 +132,25 @@ const res = await fetch("http://valymux/v1/chat", {
                 <SlidersHorizontal className="w-5 h-5 text-[#44474a]" />
               </div>
               <div>
-                <h3 className="text-base font-medium text-[#2d3436]">Configuration First</h3>
-                <p className="text-xs text-[#7d8da1] font-light">Swap LLMs in YAML, not in production code.</p>
+                <h3 className="text-base font-medium text-[#2d3436]">
+                  Configuration First
+                </h3>
+                <p className="text-xs text-[#7d8da1] font-light">
+                  Swap LLMs in YAML, not in production code.
+                </p>
               </div>
             </div>
             <div className="neo-pressed p-5 rounded-2xl font-mono text-xs text-[#7d8da1] leading-relaxed overflow-x-auto">
-              <pre>
-                <span className="text-[#ff570a]/40 italic">{"# gateway-config.yaml"}</span>
-                {"\n"}<span className="text-[#44474a]">providers:</span>
-                {"\n"}  - <span className="text-[#44474a]">id:</span> primary-model
-                {"\n"}    <span className="text-[#44474a]">target:</span> openai/gpt-4o
-                {"\n"}    <span className="text-[#44474a]">fallback:</span> anthropic/claude-3-opus
-                {"\n"}
-                {"\n"}<span className="text-[#44474a]">security:</span>
-                {"\n"}  <span className="text-[#44474a]">virtual_keys:</span> true
-                {"\n"}  <span className="text-[#44474a]">pii_filter:</span> enabled
-                {"\n"}  <span className="text-[#44474a]">budget_cap:</span> $500/mo
-              </pre>
+              <pre>{`# gateway-config.yaml
+providers:
+  - id: primary-model
+    target: openai/gpt-4o
+    fallback: anthropic/claude-3-opus
+
+security:
+  virtual_keys: true
+  pii_filter: enabled
+  budget_cap: $500/mo`}</pre>
             </div>
           </div>
         </div>
@@ -149,7 +168,10 @@ const res = await fetch("http://valymux/v1/chat", {
             <ArrowRight className="w-5 h-5 text-[#a3b1c6]" />
             <div className="flex gap-2">
               {["OpenAI", "Anthropic", "Gemini", "Any"].map((p) => (
-                <div key={p} className="neo-pressed px-3 py-2 rounded-full text-[9px] text-[#7d8da1] font-medium tracking-widest uppercase">
+                <div
+                  key={p}
+                  className="neo-pressed px-3 py-2 rounded-full text-[9px] text-[#7d8da1] font-medium tracking-widest uppercase"
+                >
                   {p}
                 </div>
               ))}
@@ -158,5 +180,5 @@ const res = await fetch("http://valymux/v1/chat", {
         </div>
       </div>
     </section>
-  )
+  );
 }

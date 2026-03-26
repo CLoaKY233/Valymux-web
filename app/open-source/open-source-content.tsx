@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { PageLayout } from "@/components/page-layout";
 import { GITHUB_URL } from "@/lib/seo";
+import { useGitHubStars } from "@/hooks/use-github-stars";
 import {
   Github,
   Eye,
@@ -15,6 +16,7 @@ import {
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { shouldSkipSceneAnimations } from "@/lib/animation";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -28,9 +30,10 @@ const meanings = [
 
 export default function OpenSourceContent() {
   const pageRef = useRef<HTMLDivElement>(null);
+  const { stars, loading } = useGitHubStars();
 
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
+    if (shouldSkipSceneAnimations()) return;
     const ctx = gsap.context(() => {
       gsap.utils.toArray<HTMLElement>(".oss-reveal").forEach((el) => {
         gsap.fromTo(
@@ -95,7 +98,9 @@ export default function OpenSourceContent() {
               </div>
               <div className="grid grid-cols-3 gap-3 mt-6">
                 <div className="neo-pressed p-3 rounded-xl text-center">
-                  <div className="text-base font-light text-[#44474a]">★</div>
+                  <div className="text-base font-light text-[#44474a]">
+                    {loading ? "★" : stars !== null ? stars : "★"}
+                  </div>
                   <div className="text-[7px] uppercase tracking-widest text-[#7d8da1] mt-1">
                     Stars
                   </div>
@@ -181,6 +186,11 @@ export default function OpenSourceContent() {
                 <span className="font-medium text-sm text-[#44474a]">
                   Star on GitHub
                 </span>
+                {!loading && stars !== null && (
+                  <span className="neo-pressed px-2.5 py-0.5 rounded-full text-[10px] font-medium text-[#44474a] tracking-wide">
+                    {stars}
+                  </span>
+                )}
               </a>
               <Link
                 href="/waitlist"

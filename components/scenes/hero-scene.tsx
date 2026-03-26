@@ -6,8 +6,14 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGitHubStars } from "@/hooks/use-github-stars";
+import {
+  configureScrollTrigger,
+  shouldSkipSceneAnimations,
+  shouldSkipPinnedAnimations,
+} from "@/lib/animation";
 
 gsap.registerPlugin(ScrollTrigger);
+configureScrollTrigger();
 
 export function HeroScene() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -17,6 +23,21 @@ export function HeroScene() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      if (shouldSkipSceneAnimations()) {
+        gsap.set(
+          [
+            ".hero-label",
+            ".hero-headline",
+            ".hero-subtitle",
+            ".hero-cta",
+            ".hero-stat",
+            diagramRef.current,
+          ],
+          { opacity: 1, y: 0 },
+        );
+        return;
+      }
+
       // Entrance animations on load
       const tl = gsap.timeline({ delay: 0.3 });
 
@@ -129,7 +150,10 @@ export function HeroScene() {
 
             <p className="hero-cta text-xs text-[#a3b1c6] font-light opacity-0">
               Already building with AI?{" "}
-              <Link href="/feedback" className="text-[#7d8da1] hover:text-[#44474a] underline underline-offset-2 transition-colors">
+              <Link
+                href="/feedback"
+                className="text-[#7d8da1] hover:text-[#44474a] underline underline-offset-2 transition-colors"
+              >
                 Share your experience →
               </Link>
             </p>
@@ -156,7 +180,7 @@ export function HeroScene() {
           </div>
 
           {/* Right: Gateway diagram */}
-          <div ref={diagramRef} className="lg:col-span-5 opacity-0">
+          <div ref={diagramRef} className="hero-diagram lg:col-span-5 opacity-0">
             <div className="neo-flat p-8 md:p-10 rounded-[2.5rem] relative">
               <div className="flex justify-center gap-3 md:gap-4 mb-6">
                 {["API Call", "SDK", "cURL"].map((label) => (

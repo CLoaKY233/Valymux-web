@@ -1,17 +1,24 @@
-"use client"
+"use client";
 
-import { useEffect, useRef } from "react"
-import gsap from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { shouldSkipSceneAnimations } from "@/lib/animation";
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 export function BridgeScene() {
-  const sectionRef = useRef<HTMLDivElement>(null)
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.fromTo(".bridge-question",
+      if (shouldSkipSceneAnimations()) {
+        gsap.set(".bridge-question, .bridge-sub", { opacity: 1, y: 0 });
+        return;
+      }
+
+      gsap.fromTo(
+        ".bridge-question",
         { y: 40, opacity: 0 },
         {
           y: 0,
@@ -24,10 +31,11 @@ export function BridgeScene() {
             end: "top 55%",
             scrub: 1,
           },
-        }
-      )
+        },
+      );
 
-      gsap.fromTo(".bridge-sub",
+      gsap.fromTo(
+        ".bridge-sub",
         { y: 20, opacity: 0 },
         {
           y: 0,
@@ -40,12 +48,12 @@ export function BridgeScene() {
             end: "top 60%",
             scrub: 1,
           },
-        }
-      )
-    }, sectionRef)
+        },
+      );
+    }, sectionRef);
 
-    return () => ctx.revert()
-  }, [])
+    return () => ctx.revert();
+  }, []);
 
   return (
     <section
@@ -62,5 +70,5 @@ export function BridgeScene() {
         </p>
       </div>
     </section>
-  )
+  );
 }

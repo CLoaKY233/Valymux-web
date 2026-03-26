@@ -4,14 +4,23 @@ import { useEffect, useRef } from "react";
 import { ArrowRight, Sparkles } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { shouldSkipSceneAnimations } from "@/lib/animation";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const beforeApis = [
-  { provider: "OpenAI", endpoint: "/v1/chat/completions", format: "messages[]" },
+  {
+    provider: "OpenAI",
+    endpoint: "/v1/chat/completions",
+    format: "messages[]",
+  },
   { provider: "Anthropic", endpoint: "/v1/messages", format: "content[]" },
   { provider: "Gemini", endpoint: "/v1/generateContent", format: "parts[]" },
-  { provider: "Mistral", endpoint: "/v1/chat/completions", format: "messages[]" },
+  {
+    provider: "Mistral",
+    endpoint: "/v1/chat/completions",
+    format: "messages[]",
+  },
 ];
 
 export function CompressionScene() {
@@ -19,6 +28,26 @@ export function CompressionScene() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      if (shouldSkipSceneAnimations()) {
+        gsap.set(
+          [
+            ".compress-heading",
+            ".compress-chaos-label",
+            ".compress-arrow-container",
+            ".compress-gateway",
+            ".compress-unified",
+            ".compress-unified-content",
+            ".compress-stats",
+            ".compress-tagline",
+            ".compress-glow",
+            ".compress-sparkle",
+            ...beforeApis.map((_, i) => `.compress-api-${i}`),
+          ],
+          { opacity: 1, y: 0, x: 0, scale: 1, rotation: 0 },
+        );
+        return;
+      }
+
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -30,93 +59,102 @@ export function CompressionScene() {
         },
       });
 
-      tl.fromTo(".compress-heading",
+      tl.fromTo(
+        ".compress-heading",
         { y: 50, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.1 },
-        0
+        0,
       );
 
       beforeApis.forEach((_, i) => {
-        tl.fromTo(`.compress-api-${i}`,
+        tl.fromTo(
+          `.compress-api-${i}`,
           { x: -100, opacity: 0, rotation: -5 },
           { x: 0, opacity: 1, rotation: 0, duration: 0.08, ease: "power2.out" },
-          0.08 + i * 0.06
+          0.08 + i * 0.06,
         );
       });
 
-      tl.fromTo(".compress-chaos-label",
+      tl.fromTo(
+        ".compress-chaos-label",
         { opacity: 0 },
         { opacity: 1, duration: 0.05 },
-        0.35
+        0.35,
       );
 
-      tl.fromTo(".compress-arrow-container",
+      tl.fromTo(
+        ".compress-arrow-container",
         { scale: 0, opacity: 0 },
         { scale: 1, opacity: 1, duration: 0.12, ease: "back.out(1.7)" },
-        0.42
+        0.42,
       );
 
-      tl.to(".compress-apis-container", {
-        x: -30,
-        opacity: 0.4,
-        duration: 0.1,
-      }, 0.5);
+      tl.to(
+        ".compress-apis-container",
+        {
+          opacity: 0.4,
+          duration: 0.1,
+        },
+        0.5,
+      );
 
-      beforeApis.forEach((_, i) => {
-        tl.to(`.compress-api-${i}`, {
-          y: (i - 1.5) * 8,
-          scale: 0.95,
-          duration: 0.08,
-        }, 0.5 + i * 0.015);
-      });
-
-      tl.fromTo(".compress-gateway",
+      tl.fromTo(
+        ".compress-gateway",
         { scale: 0.5, opacity: 0 },
         { scale: 1, opacity: 1, duration: 0.15, ease: "back.out(1.4)" },
-        0.55
+        0.55,
       );
 
-      tl.fromTo(".compress-glow",
+      tl.fromTo(
+        ".compress-glow",
         { opacity: 0, scale: 0.8 },
         { opacity: 0.6, scale: 1.5, duration: 0.2 },
-        0.55
+        0.55,
       );
 
-      tl.fromTo(".compress-unified",
+      tl.fromTo(
+        ".compress-unified",
         { x: 100, opacity: 0, scale: 0.9 },
         { x: 0, opacity: 1, scale: 1, duration: 0.15, ease: "power2.out" },
-        0.65
+        0.65,
       );
 
-      tl.fromTo(".compress-unified-content",
+      tl.fromTo(
+        ".compress-unified-content",
         { y: 20, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.1 },
-        0.72
+        0.72,
       );
 
-      tl.fromTo(".compress-stats",
+      tl.fromTo(
+        ".compress-stats",
         { y: 20, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.08 },
-        0.78
+        0.78,
       );
 
-      tl.to(".compress-apis-container", {
-        opacity: 0.15,
-        duration: 0.1,
-      }, 0.75);
+      tl.to(
+        ".compress-apis-container",
+        {
+          opacity: 0.15,
+          duration: 0.1,
+        },
+        0.75,
+      );
 
-      tl.fromTo(".compress-tagline",
+      tl.fromTo(
+        ".compress-tagline",
         { y: 30, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.1 },
-        0.85
+        0.85,
       );
 
-      tl.fromTo(".compress-sparkle",
+      tl.fromTo(
+        ".compress-sparkle",
         { scale: 0, opacity: 0, rotation: -180 },
         { scale: 1, opacity: 1, rotation: 0, duration: 0.1, stagger: 0.02 },
-        0.7
+        0.7,
       );
-
     }, sectionRef);
 
     return () => ctx.revert();
@@ -125,7 +163,7 @@ export function CompressionScene() {
   return (
     <section
       ref={sectionRef}
-      className="scene-section min-h-screen relative flex items-center px-6 md:px-12 grid-bg overflow-hidden"
+      className="scene-section min-h-screen relative flex items-center py-24 md:py-0 px-6 md:px-12 grid-bg overflow-hidden"
     >
       <div
         className="compress-glow absolute pointer-events-none opacity-0"
@@ -135,7 +173,8 @@ export function CompressionScene() {
           left: "50%",
           top: "50%",
           transform: "translate(-50%, -50%)",
-          background: "radial-gradient(ellipse, rgba(255,87,11,0.12) 0%, transparent 60%)",
+          background:
+            "radial-gradient(ellipse, rgba(255,87,11,0.12) 0%, transparent 60%)",
           borderRadius: "50%",
         }}
       />
@@ -188,7 +227,9 @@ export function CompressionScene() {
             <div className="compress-gateway relative">
               <div className="w-24 h-24 md:w-28 md:h-28 rounded-full border-2 border-[#ff570a]/25 gateway-pulse flex items-center justify-center">
                 <div className="neo-convex w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center">
-                  <span className="text-sm md:text-base font-light text-[#2d3436]">V</span>
+                  <span className="text-sm md:text-base font-light text-[#2d3436]">
+                    V
+                  </span>
                 </div>
               </div>
               <Sparkles className="compress-sparkle absolute -top-2 -right-2 w-5 h-5 text-[#ff570a]/40 opacity-0" />
@@ -202,7 +243,7 @@ export function CompressionScene() {
           <div className="compress-unified opacity-0">
             <div className="neo-flat p-6 md:p-8 rounded-3xl border-2 border-[#ff570a]/15 relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-[#ff570a]/5 to-transparent pointer-events-none" />
-              
+
               <div className="relative">
                 <div className="flex items-center gap-3 mb-5">
                   <div className="w-2.5 h-2.5 rounded-full bg-emerald-400/60" />
