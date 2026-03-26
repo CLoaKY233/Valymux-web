@@ -225,6 +225,7 @@
 - "One simple API" (not credible at the enterprise level where we're strongest)
 
 **Glossary:**
+
 | Term | Meaning |
 |------|---------|
 | Virtual API key | A key Valymux generates for you to use in your application; the real provider API keys are stored separately in Valymux. Allows you to rotate/revoke without touching your code. |
@@ -274,6 +275,7 @@
 - Quotes on time saved, visibility gained, flexibility achieved
 
 **Value themes:**
+
 | Theme | Proof |
 |-------|-------|
 | Production reliability | Built in Rust (memory-safe, no GC pauses); request tracing and metrics built-in; handles multi-provider failover |

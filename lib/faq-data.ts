@@ -25,7 +25,7 @@ export const faqs = [
   },
   {
     q: "Is Valymux safe to use with production API keys?",
-    a: "Provider keys are encrypted at rest with AES-256-GCM. Virtual keys are stored as SHA-256 hashes — the raw key is shown once on creation, never stored. Logs never contain secrets. The crypto code is AGPL and fully auditable. If you need stricter control, self-host — your keys never leave your infrastructure.",
+    a: "Provider keys will be encrypted at rest and virtual keys shown once on creation, never stored in recoverable form. Logs never contain secrets. The implementation is AGPL and fully auditable. If you need stricter control, self-host — your keys never leave your infrastructure.",
   },
   {
     q: "What providers are supported first?",

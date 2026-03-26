@@ -16,10 +16,10 @@ const pillars = [
     title: "Security",
     color: "text-[#ff570a]/40",
     description:
-      "Provider credentials encrypted with AES-256-GCM. Virtual keys stored as SHA-256 hashes. Auditable AGPL codebase. Self-hostable — your keys never leave your infrastructure.",
+      "Provider credentials encrypted at rest. Virtual keys displayed once on creation, never stored in recoverable form. AGPL codebase — every line auditable. Self-hostable by design.",
     features: [
-      { label: "Credential Encryption", value: "AES-256-GCM" },
-      { label: "Virtual Keys", value: "SHA-256 hashed" },
+      { label: "Credential Encryption", value: "at rest" },
+      { label: "Virtual Keys", value: "one-time display" },
       { label: "Self-Hostable", value: "air-gapped option" },
     ],
   },

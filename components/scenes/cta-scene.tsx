@@ -37,6 +37,17 @@ export function CTAScene() {
         return;
       }
 
+      if (shouldSkipPinnedAnimations()) {
+        gsap.utils.toArray<HTMLElement>(".cta-reveal").forEach((el) => {
+          gsap.fromTo(
+            el,
+            { y: 30, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.5, ease: "power2.out", scrollTrigger: { trigger: el, start: "top 88%", end: "top 65%" } },
+          );
+        });
+        return;
+      }
+
       gsap.utils.toArray<HTMLElement>(".cta-reveal").forEach((el) => {
         gsap.fromTo(
           el,
@@ -83,8 +94,8 @@ export function CTAScene() {
             Early Access
           </span>
           <h2 className="text-4xl md:text-5xl lg:text-7xl font-light text-[#2d3436] tracking-tight mt-4 text-balance">
-            Stop reading provider docs. <br className="hidden md:block" />
-            Start shipping.
+            Stop managing providers. <br className="hidden md:block" />
+            Start building product.
           </h2>
           <p className="text-[#7d8da1] font-light text-base md:text-lg mt-6 max-w-xl mx-auto">
             MVP launching Q2 2026. Join early — your feedback shapes what gets

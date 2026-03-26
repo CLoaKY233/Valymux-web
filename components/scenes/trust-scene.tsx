@@ -130,7 +130,7 @@ export function TrustScene() {
             <Shield className="w-6 h-6 text-[#7d8da1] mx-auto mb-3" />
             <h3 className="text-sm font-medium text-[#2d3436] mb-2">Secure</h3>
             <p className="text-xs text-[#7d8da1] font-light">
-              Rust-native, no dynamic imports. Audit the binary. Host it yourself.
+              Rust-native; avoids dynamic imports where possible. Audit the binary. Host it yourself.
             </p>
           </div>
         </div>

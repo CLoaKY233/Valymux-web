@@ -9,6 +9,12 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 gsap.registerPlugin(ScrollTrigger)
 
+const supplyChainFeatures = [
+  { label: "Compiled binary", desc: "No runtime package execution" },
+  { label: "AGPL source", desc: "Every line auditable" },
+  { label: "Self-hostable", desc: "Keys never leave your infra" },
+]
+
 const currentPosture = [
   { icon: Lock, text: "Provider API keys encrypted at rest" },
   { icon: KeyRound, text: "Virtual API keys stored as hashes, not plaintext" },
@@ -141,11 +147,7 @@ export default function SecurityContent() {
                 Valymux is written in Rust: compiled, statically linked, with no dynamic import hooks and no package manager running at runtime. There is no equivalent attack surface. You can audit the source, inspect the binary, and run it inside your own infrastructure with no external calls.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                {[
-                  { label: "Compiled binary", desc: "No runtime package execution" },
-                  { label: "AGPL source", desc: "Every line auditable" },
-                  { label: "Self-hostable", desc: "Keys never leave your infra" },
-                ].map((item) => (
+                {supplyChainFeatures.map((item) => (
                   <div key={item.label} className="neo-pressed p-4 rounded-xl">
                     <div className="text-xs font-medium text-[#2d3436] mb-1">{item.label}</div>
                     <div className="text-[11px] text-[#7d8da1] font-light">{item.desc}</div>

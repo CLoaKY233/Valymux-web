@@ -263,7 +263,8 @@ export function TransformationScene() {
                 {steps.map((step, i) => (
                   <div
                     key={i}
-                    className={`transform-detail-${i} flex items-start gap-2 opacity-0`}
+                    className={`transform-detail-${i} flex items-start gap-2 opacity-0 overflow-hidden`}
+                    style={{ height: 0 }}
                   >
                     <span className="text-[#ff570a]/30 shrink-0 leading-relaxed">
                       │
