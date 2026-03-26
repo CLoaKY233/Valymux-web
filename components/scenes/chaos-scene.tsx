@@ -13,9 +13,10 @@ import {
 } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { shouldSkipSceneAnimations } from "@/lib/animation";
+import { configureScrollTrigger, shouldSkipSceneAnimations, shouldSkipPinnedAnimations } from "@/lib/animation";
 
 gsap.registerPlugin(ScrollTrigger);
+configureScrollTrigger();
 
 const painPoints = [
   {
@@ -54,11 +55,34 @@ export function ChaosScene() {
           [
             ".chaos-heading",
             ".chaos-summary",
-            ".chaos-glow",
             ...painPoints.map((_, i) => `.chaos-card-${i}`),
           ],
           { opacity: 1, y: 0, x: 0, rotation: 0, scale: 1 },
         );
+        gsap.set(".chaos-glow", { opacity: 0.2, scale: 1.2, y: 0, x: 0, rotation: 0 });
+        return;
+      }
+
+      if (shouldSkipPinnedAnimations()) {
+        gsap.set(".chaos-glow", { opacity: 0.2, scale: 1.2 });
+        const allEls = [
+          ".chaos-heading",
+          ".chaos-summary",
+          ...painPoints.map((_, i) => `.chaos-card-${i}`),
+        ];
+        allEls.forEach((sel) => {
+          gsap.fromTo(
+            sel,
+            { y: 30, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 0.5,
+              ease: "power2.out",
+              scrollTrigger: { trigger: sel, start: "top 88%", end: "top 65%", scrub: 1 },
+            },
+          );
+        });
         return;
       }
 

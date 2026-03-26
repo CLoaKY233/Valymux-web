@@ -7,9 +7,10 @@ import { useRouter } from "next/navigation";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGitHubStars } from "@/hooks/use-github-stars";
-import { shouldSkipSceneAnimations } from "@/lib/animation";
+import { configureScrollTrigger, shouldSkipSceneAnimations, shouldSkipPinnedAnimations } from "@/lib/animation";
 
 gsap.registerPlugin(ScrollTrigger);
+configureScrollTrigger();
 
 export function CTAScene() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -20,9 +21,13 @@ export function CTAScene() {
   const command = "git clone https://github.com/CLoaKY233/Valymux.git";
 
   const handleCopy = async () => {
-    await navigator.clipboard.writeText(command);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    try {
+      await navigator.clipboard.writeText(command);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // clipboard write failed; leave UI unchanged
+    }
   };
 
   useEffect(() => {
@@ -91,7 +96,9 @@ export function CTAScene() {
         <div className="cta-reveal mt-10 md:mt-14 max-w-xl mx-auto space-y-3">
           <div className="neo-pressed p-1.5 rounded-full flex items-center min-h-14">
             <input
+              id="cta-email"
               type="email"
+              aria-label="Waitlist email"
               placeholder="your@email.com"
               value={ctaEmail}
               onChange={(e) => setCtaEmail(e.target.value)}

@@ -9,6 +9,7 @@ import { useGitHubStars } from "@/hooks/use-github-stars";
 import {
   configureScrollTrigger,
   shouldSkipSceneAnimations,
+  shouldSkipPinnedAnimations,
 } from "@/lib/animation";
 
 gsap.registerPlugin(ScrollTrigger);

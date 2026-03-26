@@ -16,6 +16,7 @@ import {
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { shouldSkipSceneAnimations } from "@/lib/animation";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -32,7 +33,7 @@ export default function OpenSourceContent() {
   const { stars, loading } = useGitHubStars();
 
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (shouldSkipSceneAnimations()) return;
     const ctx = gsap.context(() => {
       gsap.utils.toArray<HTMLElement>(".oss-reveal").forEach((el) => {
         gsap.fromTo(

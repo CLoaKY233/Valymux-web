@@ -269,3 +269,15 @@
   background-clip: text;
   animation: text-shimmer 4s linear infinite;
 }
+
+/* Prevent invisible flash for reduced-motion users where GSAP animations are skipped */
+@media (prefers-reduced-motion: reduce) {
+  .hero-label,
+  .hero-headline,
+  .hero-subtitle,
+  .hero-cta,
+  .hero-stat {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

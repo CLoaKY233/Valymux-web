@@ -4,9 +4,10 @@ import { useEffect, useRef } from "react";
 import { ArrowRight, Globe, KeyRound, Activity, Route } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { shouldSkipSceneAnimations } from "@/lib/animation";
+import { configureScrollTrigger, shouldSkipSceneAnimations, shouldSkipPinnedAnimations } from "@/lib/animation";
 
 gsap.registerPlugin(ScrollTrigger);
+configureScrollTrigger();
 
 const steps = [
   {
@@ -54,9 +55,43 @@ export function TransformationScene() {
             ".transform-frame",
             ...steps.map((_, i) => `.transform-step-${i}`),
             ...steps.map((_, i) => `.transform-detail-${i}`),
-            ...steps.map((_, i) => `.transform-indicator-${i}`),
           ],
           { opacity: 1, height: "auto", y: 0, x: 0, scaleX: 1 },
+        );
+        gsap.set(
+          steps.map((_, i) => `.transform-indicator-${i}`),
+          { opacity: 1, scaleX: 1, y: 0, x: 0 },
+        );
+        return;
+      }
+
+      if (shouldSkipPinnedAnimations()) {
+        const allEls = [
+          ".transform-heading",
+          ".transform-frame",
+          ".transform-request-line",
+          ".transform-success",
+          ".transform-flow",
+          ...steps.map((_, i) => `.transform-step-${i}`),
+          ...steps.map((_, i) => `.transform-detail-${i}`),
+        ];
+        allEls.forEach((sel) => {
+          gsap.fromTo(
+            sel,
+            { y: 30, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              height: "auto",
+              duration: 0.5,
+              ease: "power2.out",
+              scrollTrigger: { trigger: sel, start: "top 88%", end: "top 65%", scrub: 1 },
+            },
+          );
+        });
+        gsap.set(
+          steps.map((_, i) => `.transform-indicator-${i}`),
+          { scaleX: 1 },
         );
         return;
       }
