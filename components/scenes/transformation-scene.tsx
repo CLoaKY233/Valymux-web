@@ -145,10 +145,11 @@ export function TransformationScene() {
         // Corresponding detail line appears in the product frame
         tl.fromTo(
           `.transform-detail-${i}`,
-          { y: 8, opacity: 0 },
+          { y: 8, opacity: 0, height: 0 },
           {
             y: 0,
             opacity: 1,
+            height: "auto",
             duration: 0.08,
             ease: "power2.out",
           },
@@ -263,8 +264,7 @@ export function TransformationScene() {
                 {steps.map((step, i) => (
                   <div
                     key={i}
-                    className={`transform-detail-${i} flex items-start gap-2 opacity-0 overflow-hidden`}
-                    style={{ height: 0 }}
+                    className={`transform-detail-${i} flex items-start gap-2 opacity-0`}
                   >
                     <span className="text-[#ff570a]/30 shrink-0 leading-relaxed">
                       │
