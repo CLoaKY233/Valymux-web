@@ -17,7 +17,15 @@ export const faqs = [
   },
   {
     q: "What makes Valymux different?",
-    a: "It focuses on three things at once: safety, speed and concurrency, and observability — without throwing away developer experience.",
+    a: "It is built around three principles: Clarity (every model's capabilities visible in one place, no doc hunting), Speed (Rust-native, no GC overhead, designed to never be your bottleneck), and Security (non-negotiable — encrypted credentials, auditable AGPL code, self-hosted option).",
+  },
+  {
+    q: "How is Valymux different from existing LLM gateways?",
+    a: "Most alternatives are either too expensive for startups, have codebases that have raised security concerns, or require significant configuration without telling you what each model actually supports. Valymux is focused on three things: showing you exactly what each model supports so you stop hunting through docs, staying fast by design, and keeping your credentials secure by default.",
+  },
+  {
+    q: "Is Valymux safe to use with production API keys?",
+    a: "Provider keys are encrypted at rest with AES-256-GCM. Virtual keys are stored as SHA-256 hashes — the raw key is shown once on creation, never stored. Logs never contain secrets. The crypto code is AGPL and fully auditable. If you need stricter control, self-host — your keys never leave your infrastructure.",
   },
   {
     q: "What providers are supported first?",

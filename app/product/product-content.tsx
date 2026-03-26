@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react"
 import { PageLayout } from "@/components/page-layout"
-import { ArrowRight, Layers, Globe, Route, Activity, ShieldCheck, Rocket, MessageSquare } from "lucide-react"
+import { Layers, Globe, Route, Activity, ShieldCheck, Rocket, MessageSquare, Table2 } from "lucide-react"
 import Link from "next/link"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -24,6 +24,15 @@ const approach = [
   { icon: Route, title: "Route intelligently", desc: "Send requests to the right provider credential and model path." },
   { icon: Activity, title: "Keep the system observable", desc: "Log metadata so teams see latency, usage, errors, and volume." },
   { icon: ShieldCheck, title: "Keep developers in control", desc: "Simple management for keys, models, access, and policy." },
+]
+
+const catalogPreview = [
+  { model: "gpt-5.4", provider: "OpenAI", caps: ["Streaming", "Tools", "Vision", "JSON mode"] },
+  { model: "claude-sonnet-4-6", provider: "Anthropic", caps: ["Streaming", "Thinking", "Tools", "Vision"] },
+  { model: "claude-opus-4-6", provider: "Anthropic", caps: ["Streaming", "Thinking", "Tools", "1M context"] },
+  { model: "gemini-3.1-pro-preview", provider: "Google", caps: ["Streaming", "Tools", "Vision", "1M context"] },
+  { model: "gpt-5.4-mini", provider: "OpenAI", caps: ["Streaming", "Tools", "Vision", "Fast"] },
+  { model: "claude-haiku-4-5", provider: "Anthropic", caps: ["Streaming", "Tools", "Fast", "Low cost"] },
 ]
 
 const inMotion = [
@@ -64,8 +73,8 @@ export default function ProductContent() {
             <div className="product-reveal">
               <span className="text-[10px] tracking-[0.5em] uppercase text-[#ff570a]/50 font-medium">Product</span>
               <h1 className="text-4xl md:text-6xl font-light tracking-tight text-[#2d3436] mt-4 leading-tight">
-                One stable layer for{" "}
-                <span className="font-normal text-[#44474a]">provider chaos.</span>
+                Route. Translate.{" "}
+                <span className="font-normal text-[#44474a]">Know what each model supports.</span>
               </h1>
               <p className="text-[#7d8da1] font-light text-base md:text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
                 Valymux is the gateway between your application and the AI provider ecosystem.
@@ -94,6 +103,44 @@ export default function ProductContent() {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* Model Catalog */}
+        <section className="px-6 md:px-12 mb-20 md:mb-28">
+          <div className="max-w-5xl mx-auto">
+            <div className="product-reveal text-center mb-12">
+              <span className="text-[10px] tracking-[0.5em] uppercase text-[#ff570a]/50 font-medium">Coming in MVP</span>
+              <h2 className="text-2xl md:text-4xl font-light tracking-tight text-[#2d3436] mt-4">
+                The <span className="font-normal text-[#44474a]">Model Catalog</span>
+              </h2>
+              <p className="text-[#7d8da1] font-light mt-4 max-w-xl mx-auto">
+                Every supported model listed with its exact capabilities. No guessing. No docs tab. Configure in the UI and copy to your code.
+              </p>
+            </div>
+            <div className="product-reveal space-y-3">
+              {catalogPreview.map((row) => (
+                <div key={row.model} className="neo-flat p-4 md:p-5 rounded-2xl flex flex-wrap items-center gap-3">
+                  <div className="flex items-center gap-3 min-w-[200px]">
+                    <Table2 className="w-4 h-4 text-[#ff570a]/40 shrink-0" />
+                    <div>
+                      <span className="font-mono text-xs text-[#2d3436]">{row.model}</span>
+                      <span className="text-[10px] text-[#7d8da1] ml-2">{row.provider}</span>
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap gap-2 ml-auto">
+                    {row.caps.map((cap) => (
+                      <div key={cap} className="neo-pressed px-2.5 py-1 rounded-full">
+                        <span className="text-[9px] tracking-wide uppercase text-[#7d8da1]">{cap}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+            <p className="text-[10px] text-[#a3b1c6] mt-4 text-center product-reveal">
+              Partial preview · Full catalog in MVP with temperature range, context window, and more
+            </p>
           </div>
         </section>
 

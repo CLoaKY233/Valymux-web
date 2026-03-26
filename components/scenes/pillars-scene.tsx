@@ -1,25 +1,26 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { ShieldCheck, Zap, Activity, Sparkles } from "lucide-react";
+import { ShieldCheck, Zap, Table2, Sparkles } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { shouldSkipSceneAnimations } from "@/lib/animation";
+import { configureScrollTrigger, shouldSkipSceneAnimations, shouldSkipPinnedAnimations } from "@/lib/animation";
 
 gsap.registerPlugin(ScrollTrigger);
+configureScrollTrigger();
 
 const pillars = [
   {
-    id: "safety",
+    id: "security",
     icon: ShieldCheck,
-    title: "Safety",
+    title: "Security",
     color: "text-[#ff570a]/40",
     description:
-      "Virtual API keys isolate access. Provider credentials never leave the gateway. PII filtering, budget controls, and automatic key rotation built in.",
+      "Provider credentials encrypted with AES-256-GCM. Virtual keys stored as SHA-256 hashes. Auditable AGPL codebase. Self-hostable — your keys never leave your infrastructure.",
     features: [
-      { label: "Virtual API Keys", value: "vk_live_***" },
-      { label: "PII Filtering", value: "enabled" },
-      { label: "Budget Controls", value: "$500/mo cap" },
+      { label: "Credential Encryption", value: "AES-256-GCM" },
+      { label: "Virtual Keys", value: "SHA-256 hashed" },
+      { label: "Self-Hostable", value: "air-gapped option" },
     ],
   },
   {
@@ -28,7 +29,7 @@ const pillars = [
     title: "Speed",
     color: "text-blue-400/50",
     description:
-      "Rust-native engine targeting zero garbage collection overhead. Concurrent streaming across providers. Internal overhead designed to stay in microseconds.",
+      "Rust-native engine with no garbage collection overhead. Concurrent streaming across providers. Designed to never be your bottleneck.",
     stats: [
       { label: "TARGET OVERHEAD", value: "0.4ms", width: "8%" },
       { label: "TARGET P99", value: "12ms", width: "15%" },
@@ -36,31 +37,16 @@ const pillars = [
     ],
   },
   {
-    id: "observability",
-    icon: Activity,
-    title: "Observability",
-    color: "text-purple-400/50",
+    id: "clarity",
+    icon: Table2,
+    title: "Clarity",
+    color: "text-emerald-400/50",
     description:
-      "Every request traced end-to-end. Unified metrics across all providers. Cost tracking, token analytics, and latency breakdowns.",
-    traces: [
-      {
-        dot: "bg-purple-400/50",
-        label: "trace:",
-        value: "abc-123",
-        suffix: "182ms",
-      },
-      {
-        dot: "bg-blue-400/50",
-        label: "tokens:",
-        value: "1,247 / 856",
-        suffix: "$0.003",
-      },
-      {
-        dot: "bg-emerald-400/50",
-        label: "provider:",
-        value: "openai/gpt-4o",
-        suffix: "✓ 200",
-      },
+      "Every model cataloged with its exact capabilities: streaming, thinking, tools, temperature range, context window. Configure once. Copy to code. No docs tab.",
+    features: [
+      { label: "claude-sonnet-4-6 · thinking", value: "✓ supported" },
+      { label: "gpt-5.4 · tools + vision", value: "✓ supported" },
+      { label: "gemini-3.1-pro · context", value: "1M tokens" },
     ],
   },
 ];
@@ -85,7 +71,6 @@ export function PillarsScene() {
                 `.pillar-stat-label-${i}-${si}`,
                 `.pillar-bar-${i}-${si}`,
               ]) ?? []),
-              ...(p.traces?.map((_, ti) => `.pillar-trace-${i}-${ti}`) ?? []),
             ]),
             ...pillars.map((_, i) => `.pillar-card-${i}`),
           ],
@@ -100,6 +85,42 @@ export function PillarsScene() {
           }
         });
 
+        return;
+      }
+
+      if (shouldSkipPinnedAnimations()) {
+        const allEls = [
+          ".pillars-heading",
+          ".pillars-subheading",
+          ".pillars-glow",
+          ".pillars-sparkle",
+          ...pillars.map((_, i) => `.pillar-card-${i}`),
+          ...pillars.flatMap((p, i) => [
+            `.pillar-icon-${i}`,
+            ...(p.features?.map((_, fi) => `.pillar-feature-${i}-${fi}`) ?? []),
+            ...(p.stats?.flatMap((_, si) => [`.pillar-stat-label-${i}-${si}`, `.pillar-bar-${i}-${si}`]) ?? []),
+          ]),
+        ];
+        allEls.forEach((sel) => {
+          gsap.fromTo(
+            sel,
+            { y: 30, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 0.5,
+              ease: "power2.out",
+              scrollTrigger: { trigger: sel, start: "top 88%", end: "top 65%" },
+            },
+          );
+        });
+        pillars.forEach((p, i) => {
+          if (p.stats) {
+            p.stats.forEach((stat, si) => {
+              gsap.set(`.pillar-bar-${i}-${si}`, { width: stat.width });
+            });
+          }
+        });
         return;
       }
 
@@ -173,16 +194,7 @@ export function PillarsScene() {
           });
         }
 
-        if (pillar.traces) {
-          pillar.traces.forEach((_, ti) => {
-            tl.fromTo(
-              `.pillar-trace-${i}-${ti}`,
-              { y: 15, opacity: 0 },
-              { y: 0, opacity: 1, duration: 0.05 },
-              offset + 0.08 + ti * 0.025,
-            );
-          });
-        }
+
       });
 
       tl.fromTo(
@@ -230,8 +242,8 @@ export function PillarsScene() {
             </span>
           </div>
           <h2 className="pillars-subheading text-3xl md:text-5xl font-light tracking-tight text-[#2d3436] mt-4 opacity-0">
-            Architected for{" "}
-            <span className="font-normal text-[#44474a]">Intelligence.</span>
+            Built without{" "}
+            <span className="font-normal text-[#44474a]">compromise.</span>
           </h2>
         </div>
 
@@ -309,27 +321,6 @@ export function PillarsScene() {
                   </div>
                 )}
 
-                {pillar.traces && (
-                  <div className="space-y-3 relative">
-                    {pillar.traces.map((trace, ti) => (
-                      <div
-                        key={ti}
-                        className={`pillar-trace-${i}-${ti} neo-pressed p-3.5 rounded-xl font-mono text-[10px] opacity-0`}
-                      >
-                        <div className="flex items-center gap-2">
-                          <div
-                            className={`w-1.5 h-1.5 rounded-full ${trace.dot}`}
-                          />
-                          <span className="text-[#7d8da1]">{trace.label}</span>
-                          <span className="text-[#44474a]">{trace.value}</span>
-                          <span className="ml-auto text-[#a3b1c6]">
-                            {trace.suffix}
-                          </span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
               </div>
             );
           })}

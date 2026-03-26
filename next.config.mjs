@@ -4,7 +4,7 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   allowedDevOrigins: ["192.168.29.202"],
-  // serverExternalPackages: ["surrealdb"],
+  serverExternalPackages: ["surrealdb"],
 };
 
 export default nextConfig;

@@ -83,12 +83,12 @@ export function CTAScene() {
             Early Access
           </span>
           <h2 className="text-4xl md:text-5xl lg:text-7xl font-light text-[#2d3436] tracking-tight mt-4 text-balance">
-            Ready to simplify <br className="hidden md:block" />
-            your AI stack?
+            Stop reading provider docs. <br className="hidden md:block" />
+            Start shipping.
           </h2>
           <p className="text-[#7d8da1] font-light text-base md:text-lg mt-6 max-w-xl mx-auto">
-            MVP launching late April 2026. Join the waitlist to get early access
-            and help shape the future of AI infrastructure.
+            MVP launching Q2 2026. Join early — your feedback shapes what gets
+            built next.
           </p>
         </div>
 
@@ -136,11 +136,9 @@ export function CTAScene() {
             <span className="text-sm font-medium text-[#7d8da1]">
               Star on GitHub
             </span>
-            {!loading && stars !== null && (
-              <span className="neo-pressed px-2 py-0.5 rounded-full text-[9px] font-medium text-[#44474a] tracking-wide">
-                {stars}
-              </span>
-            )}
+            <span className={`neo-pressed px-2 py-0.5 rounded-full text-[9px] font-medium text-[#44474a] tracking-wide transition-opacity ${!loading && stars !== null ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
+              {stars ?? ""}
+            </span>
           </a>
 
           {/* Feedback CTA */}
@@ -174,7 +172,7 @@ export function CTAScene() {
             </button>
           </div>
           <p className="mt-6 text-[9px] md:text-[10px] uppercase tracking-[0.2em] text-[#7d8da1]">
-            OSS • 100% Rust • Pre-Release
+            OSS • Rust-Native • Self-Hostable
           </p>
         </div>
       </div>

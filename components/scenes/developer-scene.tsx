@@ -144,8 +144,8 @@ const res = await fetch("http://valymux/v1/chat", {
               <pre>{`# gateway-config.yaml
 providers:
   - id: primary-model
-    target: openai/gpt-4o
-    fallback: anthropic/claude-3-opus
+    target: openai/gpt-5.4
+    fallback: anthropic/claude-sonnet-4-6
 
 security:
   virtual_keys: true

@@ -38,8 +38,11 @@ export function HeroScene() {
         return;
       }
 
+      // Set headline invisible now (it renders visible for LCP, GSAP takes over immediately)
+      gsap.set(".hero-headline", { opacity: 0 });
+
       // Entrance animations on load
-      const tl = gsap.timeline({ delay: 0.3 });
+      const tl = gsap.timeline({ delay: 0.1 });
 
       tl.fromTo(
         ".hero-label",
@@ -102,22 +105,22 @@ export function HeroScene() {
             <div className="hero-label flex items-center gap-3 opacity-0">
               <div className="w-1.5 h-1.5 rounded-full bg-orange-400/40" />
               <span className="text-[10px] tracking-[0.4em] uppercase text-[#7d8da1] font-medium">
-                Unified AI Infrastructure
+                Open Source · Rust-Native
               </span>
             </div>
 
-            <h1 className="hero-headline text-4xl md:text-5xl lg:text-[3.5rem] xl:text-6xl font-light tracking-tight leading-[1.12] text-[#2d3436] opacity-0">
-              The Simple{" "}
-              <span className="font-normal text-[#44474a]">Gateway</span>
+            <h1 className="hero-headline text-4xl md:text-5xl lg:text-[3.5rem] xl:text-6xl font-light tracking-tight leading-[1.12] text-[#2d3436]">
+              Every AI provider.
               <br />
-              for Developers
+              <span className="font-normal text-[#44474a]">One place</span> to configure,
               <br />
-              Building with AI.
+              route, and trust.
             </h1>
 
             <p className="hero-subtitle text-base md:text-lg text-[#7d8da1] font-light max-w-lg leading-relaxed opacity-0">
-              One API endpoint for every AI provider. Route, translate, and
-              observe — without fighting each provider&apos;s API.
+              Valymux tells you exactly what each model supports, handles
+              provider quirks behind the scenes, and never exposes your
+              credentials.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 md:gap-6 pt-2">
@@ -140,11 +143,9 @@ export function HeroScene() {
                 <span className="font-medium text-sm text-[#7d8da1]">
                   Star on GitHub
                 </span>
-                {!loading && stars !== null && (
-                  <span className="neo-pressed px-2.5 py-0.5 rounded-full text-[10px] font-medium text-[#44474a] tracking-wide">
-                    {stars}
-                  </span>
-                )}
+                <span className={`neo-pressed px-2.5 py-0.5 rounded-full text-[10px] font-medium text-[#44474a] tracking-wide transition-opacity ${!loading && stars !== null ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
+                  {stars ?? ""}
+                </span>
               </a>
             </div>
 
@@ -167,13 +168,13 @@ export function HeroScene() {
               <span className="text-[#a3b1c6]/50 text-xs">•</span>
               <div className="neo-pressed px-3 md:px-4 py-2 md:py-2.5 rounded-full">
                 <span className="text-[9px] md:text-[10px] tracking-[0.15em] uppercase text-[#44474a] font-medium">
-                  Rust Engine
+                  Zero Doc-Hunting
                 </span>
               </div>
               <span className="text-[#a3b1c6]/50 text-xs">•</span>
               <div className="neo-pressed px-3 md:px-4 py-2 md:py-2.5 rounded-full">
                 <span className="text-[9px] md:text-[10px] tracking-[0.15em] uppercase text-[#44474a] font-medium">
-                  Zero Lock-in
+                  Security by Default
                 </span>
               </div>
             </div>

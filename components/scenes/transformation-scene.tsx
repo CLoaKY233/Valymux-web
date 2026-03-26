@@ -15,7 +15,7 @@ const steps = [
     title: "Smart Routing",
     desc: "Requests routed to the best available provider based on config, load, and fallback rules.",
     color: "text-blue-400/60",
-    detail: "primary: openai/gpt-4o → fallback: anthropic/claude-3",
+    detail: "primary: openai/gpt-5.4 → fallback: anthropic/claude-sonnet-4-6",
   },
   {
     icon: Globe,
@@ -56,7 +56,7 @@ export function TransformationScene() {
             ...steps.map((_, i) => `.transform-step-${i}`),
             ...steps.map((_, i) => `.transform-detail-${i}`),
           ],
-          { opacity: 1, height: "auto", y: 0, x: 0, scaleX: 1 },
+          { opacity: 1, y: 0, x: 0, scaleX: 1 },
         );
         gsap.set(
           steps.map((_, i) => `.transform-indicator-${i}`),
@@ -82,10 +82,9 @@ export function TransformationScene() {
             {
               y: 0,
               opacity: 1,
-              height: "auto",
               duration: 0.5,
               ease: "power2.out",
-              scrollTrigger: { trigger: sel, start: "top 88%", end: "top 65%", scrub: 1 },
+              scrollTrigger: { trigger: sel, start: "top 88%", end: "top 65%" },
             },
           );
         });
@@ -146,11 +145,10 @@ export function TransformationScene() {
         // Corresponding detail line appears in the product frame
         tl.fromTo(
           `.transform-detail-${i}`,
-          { y: 8, opacity: 0, height: 0 },
+          { y: 8, opacity: 0 },
           {
             y: 0,
             opacity: 1,
-            height: "auto",
             duration: 0.08,
             ease: "power2.out",
           },
@@ -265,8 +263,7 @@ export function TransformationScene() {
                 {steps.map((step, i) => (
                   <div
                     key={i}
-                    className={`transform-detail-${i} flex items-start gap-2 opacity-0 overflow-hidden`}
-                    style={{ height: 0 }}
+                    className={`transform-detail-${i} flex items-start gap-2 opacity-0`}
                   >
                     <span className="text-[#ff570a]/30 shrink-0 leading-relaxed">
                       │
