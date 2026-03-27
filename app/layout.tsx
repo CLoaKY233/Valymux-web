@@ -62,6 +62,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="dns-prefetch" href="https://api.github.com" />
+        <link rel="preconnect" href="https://api.github.com" crossOrigin="anonymous" />
+      </head>
       <body className={`${outfit.variable} ${jetbrainsMono.variable} font-sans antialiased overflow-x-hidden`}>
         <AnimationBootstrap />
         <OrganizationJsonLd />

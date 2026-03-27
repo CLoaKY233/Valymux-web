@@ -70,17 +70,15 @@ export default function ProductContent() {
         {/* Hero */}
         <section className="px-6 md:px-12 mb-20 md:mb-28">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="product-reveal">
-              <span className="text-[10px] tracking-[0.5em] uppercase text-[#ff570a]/50 font-medium">Product</span>
-              <h1 className="text-4xl md:text-6xl font-light tracking-tight text-[#2d3436] mt-4 leading-tight">
-                Route. Translate.{" "}
-                <span className="font-normal text-[#44474a]">Know what each model supports.</span>
-              </h1>
-              <p className="text-[#7d8da1] font-light text-base md:text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
-                Valymux is the gateway between your application and the AI provider ecosystem.
-                It helps developers use one stable interface while Valymux handles the provider-specific differences behind the scenes.
-              </p>
-            </div>
+            <span className="product-reveal text-[10px] tracking-[0.5em] uppercase text-[#ff570a]/50 font-medium block">Product</span>
+            <h1 className="text-4xl md:text-6xl font-light tracking-tight text-[#2d3436] mt-4 leading-tight">
+              Route. Translate.{" "}
+              <span className="font-normal text-[#44474a]">Know what each model supports.</span>
+            </h1>
+            <p className="product-reveal text-[#7d8da1] font-light text-base md:text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
+              Valymux is the gateway between your application and the AI provider ecosystem.
+              It helps developers use one stable interface while Valymux handles the provider-specific differences behind the scenes.
+            </p>
           </div>
         </section>
 

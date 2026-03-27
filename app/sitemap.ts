@@ -9,7 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: SITE_URL,
       lastModified: now,
       changeFrequency: "weekly",
-      priority: 1.0,
+      priority: 1,
     },
     {
       url: `${SITE_URL}/product`,

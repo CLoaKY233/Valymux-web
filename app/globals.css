@@ -217,11 +217,11 @@
 
 @keyframes gateway-ring-pulse {
   0%, 100% {
-    box-shadow: 0 0 20px var(--accent-orange-soft), inset 0 0 20px var(--accent-orange-soft);
+    opacity: 0.8;
     transform: scale(1);
   }
   50% {
-    box-shadow: 0 0 40px var(--accent-orange-soft), inset 0 0 30px var(--accent-orange-soft);
+    opacity: 1;
     transform: scale(1.02);
   }
 }
@@ -259,6 +259,9 @@
 
 .gateway-pulse {
   animation: gateway-ring-pulse 4s ease-in-out infinite;
+  will-change: transform, opacity;
+  /* Keep static border glow */
+  box-shadow: 0 0 20px var(--accent-orange-soft), inset 0 0 20px var(--accent-orange-soft);
 }
 
 .text-shimmer {
@@ -280,5 +283,16 @@
   .hero-diagram {
     opacity: 1 !important;
     transform: none !important;
+  }
+
+  /* Disable infinite animations for accessibility */
+  .gateway-pulse,
+  .pulse-orange,
+  .pulse-blue,
+  .text-shimmer,
+  .float-particle,
+  .float-particle-slow {
+    animation: none !important;
+    will-change: auto;
   }
 }

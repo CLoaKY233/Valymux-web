@@ -35,13 +35,11 @@ export default function FAQContent() {
         {/* Hero */}
         <section className="px-6 md:px-12 mb-16 md:mb-24">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="faq-reveal">
-              <span className="text-[10px] tracking-[0.5em] uppercase text-[#ff570a]/50 font-medium">FAQ</span>
-              <h1 className="text-4xl md:text-6xl font-light tracking-tight text-[#2d3436] mt-4 leading-tight">
-                Common{" "}
-                <span className="font-normal text-[#44474a]">questions.</span>
-              </h1>
-            </div>
+            <span className="faq-reveal text-[10px] tracking-[0.5em] uppercase text-[#ff570a]/50 font-medium block">FAQ</span>
+            <h1 className="text-4xl md:text-6xl font-light tracking-tight text-[#2d3436] mt-4 leading-tight">
+              Common{" "}
+              <span className="font-normal text-[#44474a]">questions.</span>
+            </h1>
           </div>
         </section>
 

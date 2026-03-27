@@ -83,22 +83,20 @@ export default function FeedbackContent() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               {/* Left: Copy */}
               <div className="lg:pt-2">
-                <div className="feedback-reveal">
-                  <h2 className="sr-only">Share your experience with Valymux AI infrastructure tools</h2>
-                  <span className="text-[10px] tracking-[0.5em] uppercase text-[#ff570a]/50 font-medium">Share your experience</span>
-                  <h1 className="text-4xl md:text-5xl font-light tracking-tight text-[#2d3436] mt-4 leading-tight">
-                    Your experience{" "}
-                    <span className="font-normal text-[#44474a]">matters.</span>
-                  </h1>
-                  <p className="text-[#7d8da1] font-light text-base md:text-lg mt-5 leading-relaxed">
-                    We are building Valymux to solve real problems developers face every day.
-                    The best way to get that right is to hear from you directly.
-                  </p>
-                  <p className="text-[#7d8da1] font-light text-sm mt-4 leading-relaxed">
-                    Tell us what frustrates you about working with multiple AI providers.
-                    No sales pitch — just genuine curiosity about your world.
-                  </p>
-                </div>
+                <h2 className="sr-only">Share your experience with Valymux AI infrastructure tools</h2>
+                <span className="feedback-reveal text-[10px] tracking-[0.5em] uppercase text-[#ff570a]/50 font-medium block">Share your experience</span>
+                <h1 className="text-4xl md:text-5xl font-light tracking-tight text-[#2d3436] mt-4 leading-tight">
+                  Your experience{" "}
+                  <span className="font-normal text-[#44474a]">matters.</span>
+                </h1>
+                <p className="feedback-reveal text-[#7d8da1] font-light text-base md:text-lg mt-5 leading-relaxed">
+                  We are building Valymux to solve real problems developers face every day.
+                  The best way to get that right is to hear from you directly.
+                </p>
+                <p className="feedback-reveal text-[#7d8da1] font-light text-sm mt-4 leading-relaxed">
+                  Tell us what frustrates you about working with multiple AI providers.
+                  No sales pitch — just genuine curiosity about your world.
+                </p>
 
                 <div className="feedback-reveal mt-8 space-y-3">
                   {reasons.map((item, i) => {
