@@ -9,6 +9,23 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
         disallow: "/api/",
       },
+      // Allow AI bots for search/indexing
+      {
+        userAgent: "GPTBot",
+        allow: "/",
+      },
+      {
+        userAgent: "ClaudeBot",
+        allow: "/",
+      },
+      {
+        userAgent: "ChatGPT-User",
+        allow: "/",
+      },
+      {
+        userAgent: "Google-Extended",
+        allow: "/",
+      },
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,
   };
