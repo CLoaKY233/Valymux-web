@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 // ── Site-wide constants ──────────────────────────────────────────────
-export const SITE_URL = "https://valymux.xyz";
+export const SITE_URL = "https://www.valymux.xyz";
 export const SITE_NAME = "Valymux";
 export const SITE_DESCRIPTION =
   "One simple API endpoint. Every model at your fingertips. Zero latency overhead. The intelligent gateway for developers building with AI providers.";

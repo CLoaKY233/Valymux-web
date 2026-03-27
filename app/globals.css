@@ -284,4 +284,15 @@
     opacity: 1 !important;
     transform: none !important;
   }
+
+  /* Disable infinite animations for accessibility */
+  .gateway-pulse,
+  .pulse-orange,
+  .pulse-blue,
+  .text-shimmer,
+  .float-particle,
+  .float-particle-slow {
+    animation: none !important;
+    will-change: auto;
+  }
 }
