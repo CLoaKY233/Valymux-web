@@ -19,11 +19,6 @@ export function HeroScene() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const { stars, loading } = useGitHubStars();
   const contentRef = useRef<HTMLDivElement>(null);
-
-  // Set headline invisible synchronously before paint to avoid flash
-  useLayoutEffect(() => {
-    gsap.set(".hero-headline", { opacity: 0 });
-  }, []);
   const diagramRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

@@ -90,17 +90,15 @@ export default function RoadmapContent() {
         {/* Hero */}
         <section className="px-6 md:px-12 mb-20 md:mb-28">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="road-reveal">
-              <span className="text-[10px] tracking-[0.5em] uppercase text-[#ff570a]/50 font-medium">Roadmap</span>
-              <h1 className="text-4xl md:text-6xl font-light tracking-tight text-[#2d3436] mt-4 leading-tight">
-                Where we are.{" "}
-                <span className="font-normal text-[#44474a]">Where we are headed.</span>
-              </h1>
-              <p className="text-[#7d8da1] font-light text-base md:text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
-                Valymux is in the foundation stage. We are building the backend, the product core, and the trust layer
-                while the brand prepares to launch publicly.
-              </p>
-            </div>
+            <span className="road-reveal text-[10px] tracking-[0.5em] uppercase text-[#ff570a]/50 font-medium block">Roadmap</span>
+            <h1 className="text-4xl md:text-6xl font-light tracking-tight text-[#2d3436] mt-4 leading-tight">
+              Where we are.{" "}
+              <span className="font-normal text-[#44474a]">Where we are headed.</span>
+            </h1>
+            <p className="road-reveal text-[#7d8da1] font-light text-base md:text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
+              Valymux is in the foundation stage. We are building the backend, the product core, and the trust layer
+              while the brand prepares to launch publicly.
+            </p>
           </div>
         </section>
 

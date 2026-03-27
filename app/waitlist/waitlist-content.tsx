@@ -95,21 +95,19 @@ export default function WaitlistContent() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               {/* Left: Copy */}
               <div>
-                <div className="wait-reveal">
-                  <span className="text-[10px] tracking-[0.5em] uppercase text-[#ff570a]/50 font-medium">Early Access</span>
-                  <h1 className="text-4xl md:text-5xl font-light tracking-tight text-[#2d3436] mt-4 leading-tight">
-                    Join the{" "}
-                    <span className="font-normal text-[#44474a]">waitlist.</span>
-                  </h1>
-                  <p className="text-[#7d8da1] font-light text-base md:text-lg mt-5 leading-relaxed">
-                    Valymux is being built now, and we want the first people who care about AI
-                    infra to be part of the process.
-                  </p>
-                  <p className="text-[#7d8da1] font-light text-sm mt-4 leading-relaxed">
-                    If you are dealing with provider sprawl, model churn, custom integration code,
-                    or weak observability — we want to hear from you.
-                  </p>
-                </div>
+                <span className="wait-reveal text-[10px] tracking-[0.5em] uppercase text-[#ff570a]/50 font-medium block">Early Access</span>
+                <h1 className="text-4xl md:text-5xl font-light tracking-tight text-[#2d3436] mt-4 leading-tight">
+                  Join the{" "}
+                  <span className="font-normal text-[#44474a]">waitlist.</span>
+                </h1>
+                <p className="wait-reveal text-[#7d8da1] font-light text-base md:text-lg mt-5 leading-relaxed">
+                  Valymux is being built now, and we want the first people who care about AI
+                  infra to be part of the process.
+                </p>
+                <p className="wait-reveal text-[#7d8da1] font-light text-sm mt-4 leading-relaxed">
+                  If you are dealing with provider sprawl, model churn, custom integration code,
+                  or weak observability — we want to hear from you.
+                </p>
               </div>
 
               {/* Right: Form */}

@@ -63,20 +63,18 @@ export default function OpenSourceContent() {
         {/* Hero */}
         <section className="px-6 md:px-12 mb-20 md:mb-28">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="oss-reveal">
-              <span className="text-[10px] tracking-[0.5em] uppercase text-[#ff570a]/50 font-medium">
-                Open Source
-              </span>
-              <h1 className="text-4xl md:text-6xl font-light tracking-tight text-[#2d3436] mt-4 leading-tight">
-                Open source from{" "}
-                <span className="font-normal text-[#44474a]">day one.</span>
-              </h1>
-              <p className="text-[#7d8da1] font-light text-base md:text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
-                We are building developer infrastructure. That means trust
-                matters, and openness matters. People should be able to inspect
-                how the gateway works and follow the product as it evolves.
-              </p>
-            </div>
+            <span className="oss-reveal text-[10px] tracking-[0.5em] uppercase text-[#ff570a]/50 font-medium block">
+              Open Source
+            </span>
+            <h1 className="text-4xl md:text-6xl font-light tracking-tight text-[#2d3436] mt-4 leading-tight">
+              Open source from{" "}
+              <span className="font-normal text-[#44474a]">day one.</span>
+            </h1>
+            <p className="oss-reveal text-[#7d8da1] font-light text-base md:text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
+              We are building developer infrastructure. That means trust
+              matters, and openness matters. People should be able to inspect
+              how the gateway works and follow the product as it evolves.
+            </p>
           </div>
         </section>
 
