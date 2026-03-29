@@ -5,9 +5,9 @@ import { faqs } from "@/lib/faq-data"
 import FAQContent from "./faq-content"
 
 export const metadata: Metadata = buildMetadata({
-  title: "FAQ — Common Questions About Valymux",
+  title: "FAQ | Valymux LLM Proxy & AI Gateway Questions",
   description:
-    "Answers to common questions about Valymux: what it is, who it's for, pricing, open source status, MVP timeline, and how to give feedback.",
+    "Answers to common questions about Valymux: proxy overhead latency, self-hosting options, OpenAI compatibility, and why we built a secure AI gateway in Rust.",
   path: "/faq",
 })
 

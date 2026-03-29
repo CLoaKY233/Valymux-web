@@ -4,9 +4,9 @@ import { BreadcrumbJsonLd } from "@/components/json-ld"
 import OpenSourceContent from "./open-source-content"
 
 export const metadata: Metadata = buildMetadata({
-  title: "Open Source AI Gateway — Inspect, Trust, Contribute",
+  title: "Open Source Rust LLM Gateway — Self-Host & Inspect | Valymux",
   description:
-    "Valymux is fully open source under AGPL-3.0. Explore the Rust codebase, follow development in public, and contribute to the AI gateway built for transparency.",
+    "Valymux is a fully open-source (AGPL) LLM proxy built in Rust. Self-host for complete data privacy, audit our memory-safe codebase, and avoid vendor lock-in forever.",
   path: "/open-source",
 })
 

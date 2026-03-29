@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     template: '%s | Valymux',
-    default: 'Valymux | The Simple Gateway for AI Providers',
+    default: 'Valymux | The Secure, Rust-Native LLM Gateway',
   },
   description: SITE_DESCRIPTION,
   icons: {

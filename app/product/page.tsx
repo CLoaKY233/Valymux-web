@@ -4,9 +4,9 @@ import { BreadcrumbJsonLd, SoftwareApplicationJsonLd } from "@/components/json-l
 import ProductContent from "./product-content"
 
 export const metadata: Metadata = buildMetadata({
-  title: "How Valymux Works — AI Gateway Architecture",
+  title: "Features & Architecture | Valymux LLM API Gateway",
   description:
-    "Learn how Valymux standardizes AI provider chaos into one stable interface. One API, intelligent routing, built-in observability, and secure credential management.",
+    "Discover how Valymux sits between your app and AI providers. Get built-in request tracing, secure credential isolation, and microsecond-latency routing without the Python supply chain risks.",
   path: "/product",
 })
 

@@ -5,9 +5,9 @@ import { BreadcrumbJsonLd } from "@/components/json-ld"
 import WaitlistContent from "./waitlist-content"
 
 export const metadata: Metadata = buildMetadata({
-  title: "Join the Waitlist — Get Early Access to Valymux",
+  title: "Get Early Access | Valymux Secure LLM Gateway",
   description:
-    "Sign up for early access to Valymux. Be first to try the AI gateway, share feedback that shapes the MVP, and get updates as we build in public.",
+    "Join the Valymux waitlist. Get early access to the fastest, most secure Rust-based AI gateway and help shape the future of LLM observability and routing.",
   path: "/waitlist",
 })
 

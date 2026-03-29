@@ -4,8 +4,8 @@ import type { Metadata } from "next";
 export const SITE_URL = "https://www.valymux.xyz";
 export const SITE_NAME = "Valymux";
 export const SITE_DESCRIPTION =
-  "One simple API endpoint. Every model at your fingertips. Zero latency overhead. The intelligent gateway for developers building with AI providers.";
-export const TWITTER_HANDLE = "@valymux";
+  "Route requests across any AI provider with a single OpenAI-compatible API. Valymux is an open-source, Rust-native LLM gateway built for speed, security, and full observability.";
+// export const TWITTER_HANDLE = "@valymux";
 export const GITHUB_URL = "https://github.com/cloaky233/Valymux";
 
 // ── OG Image (fallback — replace with a real OG image later) ─────────
@@ -29,7 +29,7 @@ export function buildMetadata({
   const image = ogImage ?? OG_IMAGE;
 
   return {
-    title,
+    title: { absolute: title },
     description,
     alternates: { canonical: url },
     openGraph: {
@@ -41,12 +41,12 @@ export function buildMetadata({
       locale: "en_US",
       type: "website",
     },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      site: TWITTER_HANDLE,
-      images: [image],
-    },
+    // twitter: {
+    //   card: "summary_large_image",
+    //   title,
+    //   description,
+    //   site: TWITTER_HANDLE,
+    //   images: [image],
+    // },
   };
 }

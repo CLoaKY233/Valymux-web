@@ -4,9 +4,9 @@ import { BreadcrumbJsonLd } from "@/components/json-ld"
 import RoadmapContent from "./roadmap-content"
 
 export const metadata: Metadata = buildMetadata({
-  title: "Roadmap — What We're Building Next",
+  title: "Roadmap | Valymux Open Source AI Gateway",
   description:
-    "See what Valymux is building now and what's coming next. MVP targeting end of April 2026 — rate limiting, team workflows, more provider adapters, and beyond.",
+    "Explore the Valymux development roadmap. See upcoming features for our Rust-native LLM proxy, including rate limiting, team workflows, and new provider adapters.",
   path: "/roadmap",
 })
 

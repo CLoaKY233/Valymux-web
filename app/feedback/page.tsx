@@ -4,9 +4,9 @@ import { BreadcrumbJsonLd } from "@/components/json-ld"
 import FeedbackContent from "./feedback-content"
 
 export const metadata: Metadata = buildMetadata({
-  title: "Share Feedback — Help Shape Valymux",
+  title: "Share Feedback | Shape the Valymux Rust LLM Gateway",
   description:
-    "Tell us what frustrates you about working with multiple AI providers. Your feedback directly shapes what gets built next in Valymux.",
+    "Help us build the ultimate open-source LLM gateway. Share your feedback on Valymux's routing capabilities, observability metrics, and security features.",
   path: "/feedback",
 })
 
