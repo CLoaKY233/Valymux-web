@@ -40,7 +40,7 @@ const nextConfig = {
               `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ''} https://va.vercel-scripts.com https://vercel.live`,
               "style-src 'self' 'unsafe-inline'",
               "img-src 'self' data: https:",
-              "font-src 'self' data:",
+              "font-src 'self' data: https://vercel.live",
               "connect-src 'self' https://api.github.com https://va.vercel-scripts.com https://*.vercel-insights.com https://vercel.live",
               "frame-ancestors 'self'",
               "object-src 'none'",
