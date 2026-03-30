@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { shouldSkipSceneAnimations } from "@/lib/animation";
@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger);
 export function BridgeScene() {
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       if (shouldSkipSceneAnimations()) {
         gsap.set(".bridge-question, .bridge-sub", { opacity: 1, y: 0 });

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import {
   Zap,
   Wrench,
@@ -48,7 +48,7 @@ const painPoints = [
 export function ChaosScene() {
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       if (shouldSkipSceneAnimations()) {
         gsap.set(

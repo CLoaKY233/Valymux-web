@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { Github, Heart, Users, BookOpen, Shield } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -13,7 +13,7 @@ export function TrustScene() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const { stars, loading } = useGitHubStars();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       if (shouldSkipSceneAnimations()) {
         gsap.set(".trust-reveal", { opacity: 1, y: 0 });

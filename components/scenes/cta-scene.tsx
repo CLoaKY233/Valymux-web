@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { Copy, Check, Rocket, Github, MessageSquare } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -30,7 +30,7 @@ export function CTAScene() {
     }
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       if (shouldSkipSceneAnimations()) {
         gsap.set(".cta-reveal", { opacity: 1, y: 0 });

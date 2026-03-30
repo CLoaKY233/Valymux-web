@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useLayoutEffect, useRef, useState } from "react"
 import { Terminal, Menu, X } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
@@ -28,7 +28,7 @@ export function Navbar() {
 
   const closeMobileMenu = () => setMobileOpen(false)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(navRef.current,
         { y: -20, opacity: 0 },
