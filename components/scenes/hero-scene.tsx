@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { Rocket, Star } from "lucide-react";
 import Link from "next/link";
 import gsap from "gsap";
@@ -21,7 +21,7 @@ export function HeroScene() {
   const contentRef = useRef<HTMLDivElement>(null);
   const diagramRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       if (shouldSkipSceneAnimations()) {
         gsap.set(
@@ -203,7 +203,7 @@ export function HeroScene() {
                 {["API Call", "SDK", "cURL"].map((label) => (
                   <div
                     key={label}
-                    className="neo-convex px-3 md:px-4 py-2 md:py-2.5 rounded-xl text-center min-w-[70px] md:min-w-[80px]"
+                    className="neo-convex px-3 md:px-4 py-2 md:py-2.5 rounded-xl text-center min-w-17.5 md:min-w-20"
                   >
                     <span className="text-[9px] font-medium tracking-widest text-[#7d8da1] uppercase">
                       {label}
@@ -228,7 +228,7 @@ export function HeroScene() {
                 <div className="neo-pressed w-0.5 h-8 rounded-full" />
               </div>
 
-              <div className="flex justify-center gap-2 flex-wrap max-w-[280px] mx-auto">
+              <div className="flex justify-center gap-2 flex-wrap max-w-70 mx-auto">
                 {["OpenAI", "Anthropic", "Gemini", "Mistral"].map((name) => (
                   <div
                     key={name}

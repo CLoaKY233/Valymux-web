@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { ArrowRight, Sparkles } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -27,7 +27,7 @@ const beforeApis = [
 export function CompressionScene() {
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       if (shouldSkipSceneAnimations()) {
         gsap.set(
@@ -273,7 +273,7 @@ export function CompressionScene() {
 
           <div className="compress-unified opacity-0">
             <div className="neo-flat p-6 md:p-8 rounded-3xl border-2 border-[#ff570a]/15 relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#ff570a]/5 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-linear-to-br from-[#ff570a]/5 to-transparent pointer-events-none" />
 
               <div className="relative">
                 <div className="flex items-center gap-3 mb-5">
