@@ -5,6 +5,7 @@ import Lenis from "lenis";
 import Snap from "lenis/snap";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { prefersReducedMotion } from "@/lib/animation";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,6 +14,8 @@ export function SmoothScroll() {
   const snapRef = useRef<Snap | null>(null);
 
   useEffect(() => {
+    if (prefersReducedMotion()) return;
+
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -35,8 +38,7 @@ export function SmoothScroll() {
 
     gsap.ticker.lagSmoothing(0);
 
-    // Initialize Snap after a short delay to ensure scenes are mounted
-    const snapTimeout = setTimeout(() => {
+    const initSnap = () => {
       const sceneElements = document.querySelectorAll(".scene-section");
       
       if (sceneElements.length > 0) {
@@ -50,17 +52,20 @@ export function SmoothScroll() {
 
         snapRef.current = snap;
 
-        // Add each scene as a snap target
         sceneElements.forEach((el) => {
           snap.addElement(el as HTMLElement, { 
             align: ["start"],
           });
         });
       }
-    }, 500);
+    };
+
+    // Wait for dynamic scenes to hydrate before discovering snap targets
+    requestAnimationFrame(() => {
+      requestAnimationFrame(initSnap);
+    });
 
     return () => {
-      clearTimeout(snapTimeout);
       snapRef.current?.destroy();
       gsap.ticker.remove(gsapTicker);
       lenis.destroy();
