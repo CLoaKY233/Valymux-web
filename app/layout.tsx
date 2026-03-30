@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/json-ld";
 import { AnimationBootstrap } from "@/components/animation-bootstrap";
+import { SmoothScroll } from "@/components/smooth-scroll";
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION, OG_IMAGE } from "@/lib/seo";
 import "./globals.css";
 
@@ -74,6 +75,7 @@ export default function RootLayout({
         className={`${outfit.variable} ${jetbrainsMono.variable} font-sans antialiased overflow-x-hidden`}
       >
         <AnimationBootstrap />
+        <SmoothScroll />
         <OrganizationJsonLd />
         <WebSiteJsonLd />
         {children}
