@@ -90,9 +90,9 @@ export function ChaosScene() {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top top",
-          end: "+=180%",
+          end: "+=120%",
           pin: true,
-          scrub: 1,
+          scrub: 0.8,
           pinSpacing: true,
         },
       });
