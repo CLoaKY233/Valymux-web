@@ -27,10 +27,11 @@ export function SmoothScroll() {
     // Sync Lenis with GSAP ScrollTrigger
     lenis.on("scroll", ScrollTrigger.update);
 
-    // Connect GSAP ticker to Lenis
-    gsap.ticker.add((time) => {
+    // Connect GSAP ticker to Lenis - store reference for cleanup
+    const gsapTicker = (time: number) => {
       lenis.raf(time * 1000);
-    });
+    };
+    gsap.ticker.add(gsapTicker);
 
     gsap.ticker.lagSmoothing(0);
 
@@ -61,7 +62,7 @@ export function SmoothScroll() {
     return () => {
       clearTimeout(snapTimeout);
       snapRef.current?.destroy();
-      gsap.ticker.remove(lenis.raf);
+      gsap.ticker.remove(gsapTicker);
       lenis.destroy();
     };
   }, []);
