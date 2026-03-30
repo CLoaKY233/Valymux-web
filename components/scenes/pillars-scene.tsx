@@ -128,9 +128,9 @@ export function PillarsScene() {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top top",
-          end: "+=310%",
+          end: "+=220%",
           pin: true,
-          scrub: 1,
+          scrub: 0.8,
           pinSpacing: true,
         },
       });
