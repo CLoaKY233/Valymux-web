@@ -260,7 +260,7 @@ export function PillarsScene() {
                 {pillar.id === "speed" && (
                   <>
                     <Sparkles className="pillars-sparkle absolute top-4 right-4 w-4 h-4 text-blue-400/30 opacity-0" />
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-400/5 to-transparent rounded-4xl pointer-events-none" />
+                    <div className="absolute inset-0 bg-linear-to-br from-blue-400/5 to-transparent rounded-4xl pointer-events-none" />
                   </>
                 )}
 
